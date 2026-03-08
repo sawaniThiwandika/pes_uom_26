@@ -56,45 +56,63 @@ export default function About() {
       <section className="vision-mission">
 
         <div className="vision-card">
-
-          <h3>Our Vision</h3>
+          <h2>Our Vision</h2>
 
           <p>
-            Foster technological innovation and excellence for the
-            benefit of humanity.
+            Foster technological innovation and excellence
+            for the benefit of humanity.
           </p>
-
         </div>
 
+
         <div className="mission-card">
+          <h2>Our Mission</h2>
 
-          <h3>Our Mission</h3>
-
-          <p>
-            IEEE will be essential to the global technical community
-            and technical professionals everywhere.
+          <p className="mission-text">
+            IEEE will be essential to the global technical community and
+            to technical professionals everywhere, and be universally
+            recognized for the contributions of technology and of
+            technical professionals in improving global conditions.
           </p>
-
         </div>
 
       </section>
-
 
       {/* ADVISOR */}
 
       <section className="advisor-section">
 
-        <h2>Advisor</h2>
+        <h2 className="advisor-title">Advisor</h2>
 
-        <img
-          src={advisor}
-          alt="Advisor"
-          className="advisor-img"
-        />
+        <div className="advisor-card">
 
-        <h3>Mrs. K.A.T. Lasagani</h3>
+          <div className="advisor-image-container">
 
-        <p>IEEE PES Chapter Advisor</p>
+            <img
+              src={advisor}
+              alt="Advisor"
+              className="advisor-img"
+            />
+
+            <div className="advisor-overlay">
+
+              <p>B.Sc (Moratuwa), M.Eng. (Canada), P.Eng. (ON, Canada)</p>
+
+              <p>Senior Lecturer Gr. II</p>
+
+              <p>Department of Electrical Engineering</p>
+
+              <p>University of Moratuwa</p>
+
+            </div>
+
+          </div>
+
+          <h3>Mrs. K.A.T. Lasagani</h3>
+
+          <p className="advisor-role">IEEE PES Chapter Advisor</p>
+
+        </div>
 
       </section>
 
