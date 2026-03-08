@@ -7,22 +7,16 @@ export default function Navbar() {
     <nav className="navbar">
 
       <div className="logo-container">
-        <img src={logo} alt="IEEE PES Logo" className="logo-image" />
+        <img src={logo} alt="IEEE PES Logo" className="logo-image"/>
       </div>
 
       <div className="nav-links">
 
         <Link to="/">Home</Link>
-
-        <Link to="/volunteer">Volunteer of the Year</Link>
-
         <Link to="/about">About</Link>
-
         <Link to="/committees">Committees</Link>
-
         <Link to="/projects">Projects</Link>
-
-        <Link to="/contact">Contact Us</Link>
+        <Link to="/contact">Contact</Link>
 
       </div>
 
