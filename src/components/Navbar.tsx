@@ -5,6 +5,7 @@ import logo from "../assets/logo.png";
 
 const NAV_LINKS = [
     { to: "/",           label: "Home"       },
+    { to: "/volunteer",           label: "Volunteer of Year"       },
     { to: "/about",      label: "About"      },
     { to: "/committees", label: "Committees" },
     { to: "/projects",   label: "Projects"   },
