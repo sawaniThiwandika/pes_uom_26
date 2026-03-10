@@ -28,9 +28,7 @@ export default function WhatIsPES() {
 
                 {/* ── Promotional Video ── */}
                 <div className="w-full flex flex-col items-center gap-5">
-                    <h2 className="text-white font-bold text-xl sm:text-2xl tracking-tight">
-                        IEEE PES Promotional Video
-                    </h2>
+
 
                     {/* Video container with green glow border */}
                     <div

@@ -6,6 +6,7 @@ import About from "./pages/About.tsx";
 import Committees from "./pages/Commitees.tsx";
 import Home from "./pages/Home.tsx";
 import Navbar from "./components/Navbar.tsx";
+import VolunteerPage from "./pages/VolunteerPage.tsx";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/committees" element={<Committees />} />
+        <Route path="/volunteer" element={<VolunteerPage />} />
       {/*  <Route path="/achievements" element={<Achievements />} />
         <Route path="/achievement/:id" element={<AchievementDetails />} />*/}
 
