@@ -11,7 +11,7 @@ const committees = [
 {
 title:"Executive Committee",
 members:[
-{name:"Kavishka Lakshan",role:"President",image:"src/assets/committee/kavishka.png"},
+{name:"Kavishka Lakshan",role:"President",image:"public/committee/kavishka.png"},
 {name:"Nadun Walaketiya",role:"Vice President",image:"src/assets/committee/nadun.png"},
 {name:"Saneru Weerasinghe",role:"Secretary",image:"src/assets/committee/saneru.png"},
 {name:"Lasindu Shaluka",role:"Treasurer",image:"src/assets/committee/lasindu.png"},
