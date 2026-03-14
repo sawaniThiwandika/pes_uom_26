@@ -9,7 +9,7 @@ const NAV_LINKS = [
     { to: "/about",      label: "About"      },
     { to: "/committees", label: "Committees" },
     { to: "/projects",   label: "Projects"   },
-    { to: "/contact",    label: "Contact"    },
+
 ];
 
 export default function Navbar() {
@@ -55,17 +55,7 @@ export default function Navbar() {
                                 transition: "height 0.45s ease",
                             }}
                         />
-                        <div className="hidden sm:flex items-center gap-3">
-                            <div className="w-px h-6 bg-white/20" />
-                            <div className="flex flex-col leading-tight">
-                                <span className="text-white font-semibold text-[11px] tracking-[0.14em] uppercase">
-                                    IEEE PES
-                                </span>
-                                <span className="text-white/45 text-[9px] tracking-[0.12em] uppercase">
-                                    UoM Student Branch
-                                </span>
-                            </div>
-                        </div>
+
                     </Link>
 
                     {/* ── Desktop nav ── */}
@@ -143,9 +133,9 @@ export default function Navbar() {
                 </div>
             </nav>
 
-            {/* ════════════════════════════════
+            {/*
                 MOBILE SLIDE PANEL
-            ════════════════════════════════ */}
+            */}
 
             {/* Backdrop */}
             <div
