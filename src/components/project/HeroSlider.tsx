@@ -50,7 +50,7 @@ export default function HeroSlider() {
                     >
                         <img
                             src={src}
-                            alt=""
+                            alt="image"
                             className="w-full h-full object-cover"
                             style={{filter: "grayscale(100%) brightness(0.55)"}}
                         />
