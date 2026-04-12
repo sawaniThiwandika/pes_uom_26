@@ -1,39 +1,45 @@
 import { useState } from "react";
 import MemberCard from "../components/MemberCard";
 import "../styles/pages.css";
-import kavishka from "../../public/committee/kavishka.png"
-import nadun from "../../public/committee/nadun.png"
-import saneru from "../../public/committee/saneru.png"
-import lasindu from "../../public/committee/lasindu.png"
-import ishan from "../../public/committee/ishan.png"
-import vidura from "../../public/committee/vidura.jpeg"
-import dulsika from "../../public/committee/dulsika.jpeg"
-import mahesha from "../../public/committee/mahesha.jpg"
-import pabasara from "../../public/committee/pabasara.jpeg"
-import shakya from "../../public/committee/shakya.webp"
-import seynath from "../../public/committee/seynath.jpg"
-import vihanga from "../../public/committee/vihanga.webp"
-import hasitha from "../../public/committee/hasitha.jpg"
-import anupa from "../../public/committee/anupa.png"
-import kivira from "../../public/committee/kivira.jpeg"
-import chamix from "../../public/committee/chamix.jpeg"
-import easha from "../../public/committee/easha.jpeg"
-import achintha from "../../public/committee/achintha.jpg"
-import dilini from "../../public/committee/dilni.jpeg"
-import thuvarahan from "../../public/committee/thuvarahan.jpg"
-import thisul from "../../public/committee/thisul.jpg"
-import shalani from "../../public/committee/shalani.jpg"
-import vindya from "../../public/committee/vindya.jpeg"
-import harshani from "../../public/committee/harshani.jpg"
-import dulasha from "../../public/committee/dulasha.jpg"
-import raveesha from "../../public/committee/raveesha.jpg"
-import charithma from "../../public/committee/charithma.png"
-import okindu from "../../public/committee/okindu.jpg"
-import sawani from "../../public/committee/sawani.jpeg"
-import chanupa from "../../public/committee/chanupa.jpg"
-import madhuwantha from "../../public/committee/madhuwantha.jpeg"
 
+/* 🔥 import images (same as your file) */
+import kavishka from "../../public/committee/kavishka.png";
+import nadun from "../../public/committee/nadun.png";
+import saneru from "../../public/committee/saneru.png";
+import lasindu from "../../public/committee/lasindu.png";
+import ishan from "../../public/committee/ishan.png";
 
+import vidura from "../../public/committee/vidura.jpeg";
+import dulsika from "../../public/committee/dulsika.jpeg";
+import mahesha from "../../public/committee/mahesha.jpg";
+
+import pabasara from "../../public/committee/pabasara.jpeg";
+import shakya from "../../public/committee/shakya.webp";
+import seynath from "../../public/committee/seynath.jpg";
+import vihanga from "../../public/committee/vihanga.webp";
+import hasitha from "../../public/committee/hasitha.jpg";
+import anupa from "../../public/committee/anupa.png";
+import kivira from "../../public/committee/kivira.jpeg";
+
+import chamix from "../../public/committee/chamix.jpeg";
+import easha from "../../public/committee/easha.jpeg";
+import achintha from "../../public/committee/achintha.jpg";
+import dilini from "../../public/committee/dilni.jpeg";
+import thuvarahan from "../../public/committee/thuvarahan.jpg";
+import thisul from "../../public/committee/thisul.jpg";
+
+import shalani from "../../public/committee/shalani.jpg";
+import vindya from "../../public/committee/vindya.jpeg";
+import harshani from "../../public/committee/harshani.jpg";
+import dulasha from "../../public/committee/dulasha.jpg";
+import raveesha from "../../public/committee/raveesha.jpg";
+
+import charithma from "../../public/committee/charithma.png";
+import okindu from "../../public/committee/okindu.jpg";
+
+import sawani from "../../public/committee/sawani.jpeg";
+import chanupa from "../../public/committee/chanupa.jpg";
+import madhuwantha from "../../public/committee/madhuwantha.jpeg";
 
 export default function Committees(){
 
@@ -63,64 +69,61 @@ members:[
 
 {
 title:"Organizing",
- members: [
-        { name: "Pabasara Piyumal", role: "Lead", image: pabasara },
-        { name: "Shakya Marasingha", role: "Member", image: shakya },
-        { name: "Seynath Chathwara Suraweera", role: "Member", image:seynath },
-        { name: "Sembakuttige Vihanga Kaushal", role: "Member", image:vihanga },
-        { name: "Hasitha Rupasinghe", role: "Member", image:hasitha },
-        { name: "P.K. Anupa Minojitha", role: "Member", image: anupa},
-        { name: "Kivira Vehan Gammaddegoda", role: "Member", image: kivira }
-      ]
+members:[
+{name:"Pabasara Piyumal",role:"Lead",image:pabasara},
+{name:"Shakya Marasingha",role:"Member",image:shakya},
+{name:"Seynath Chathwara",role:"Member",image:seynath},
+{name:"Vihanga Kaushal",role:"Member",image:vihanga},
+{name:"Hasitha Rupasinghe",role:"Member",image:hasitha},
+{name:"Anupa Minojitha",role:"Member",image:anupa},
+{name:"Kivira Vehan",role:"Member",image:kivira}
+]
 },
 
 {
 title:"Creative Design",
 members:[
-  {name:"Chamiru Gajasinghe",role:"Lead",image:chamix},
-  {name:"Easha Wanniarachchi",role:"Member",image:easha},
-  {name:"Achintha Niroshan",role:"Member",image:achintha},
-  {name:"Dilni Nimanya Muthukuda",role:"Member",image:dilini},
-  {name:"Thuvarahan Thayalan",role:"Member",image:thuvarahan},
-  {name:"B.G. Thisul Dulneth",role:"Member",image:thisul}
+{name:"Chamiru Gajasinghe",role:"Lead",image:chamix},
+{name:"Easha Wanniarachchi",role:"Member",image:easha},
+{name:"Achintha",role:"Member",image:achintha},
+{name:"Dilni Muthukuda",role:"Member",image:dilini},
+{name:"Thuvarahan",role:"Member",image:thuvarahan},
+{name:"Thisul Dulneth",role:"Member",image:thisul}
 ]
 },
-
 
 {
 title:"Editorial",
 members:[
-{name:"Shalani Ambalangodage",role:"Lead",image:shalani},
-{name:"Vindya Nilushika",role:"Member",image:vindya},
-{name:"Harshani Lakmali",role:"Member",image:harshani},
-{name:"Dulasha Perera",role:"Member",image:dulasha},
-{name:"Raveesha Samarasinghe",role:"Member",image:raveesha}
+{name:"Shalani",role:"Lead",image:shalani},
+{name:"Vindya",role:"Member",image:vindya},
+{name:"Harshani",role:"Member",image:harshani},
+{name:"Dulasha",role:"Member",image:dulasha},
+{name:"Raveesha",role:"Member",image:raveesha}
 ]
 },
 
 {
 title:"Finance",
 members:[
-{name:"Charithma Dewmi",role:"Lead",image:charithma},
-{name:"Okindu Fernando",role:"Member",image:okindu}
+{name:"Charithma",role:"Lead",image:charithma},
+{name:"Okindu",role:"Member",image:okindu}
 ]
 },
 
 {
 title:"Web Development",
-members: [
-        { name: "Sawani Thiwandika", role: "Lead", image: sawani },
-        { name: "Chanupa Hansaja Vithanage", role: "Member", image: chanupa},
-        { name: "Madhuwantha Dissanayaka", role: "Member", image: madhuwantha}
-      ]
+members:[
+{name:"Sawani",role:"Lead",image:sawani},
+{name:"Chanupa",role:"Member",image:chanupa},
+{name:"Madhuwantha",role:"Member",image:madhuwantha}
+]
 }
 
 ];
 
 const current = committees[activeTab];
-
 const lead = current.members.find(m=>m.role==="Lead");
-
 const members = current.members.filter(m=>m.role!=="Lead");
 
 return(
@@ -129,8 +132,7 @@ return(
 
 <h1 className="committee-main-title">Committees</h1>
 
-{/* Tabs */}
-
+{/* 🔥 MOBILE TABS */}
 <div className="committee-tabs">
 
 {committees.map((c,i)=>(
@@ -145,51 +147,37 @@ onClick={()=>setActiveTab(i)}
 
 </div>
 
-
-{/* Executive special layout */}
-
+{/* EXECUTIVE SPECIAL */}
 {current.title==="Executive Committee" ? (
 
 <>
 <div className="committee-row">
-
 <MemberCard {...current.members[0]} />
 <MemberCard {...current.members[1]} />
-
 </div>
 
-<div className="committee-row">
-
+<div className="committee-grid">
 {current.members.slice(2).map((m,i)=>(
-<MemberCard key={i} {...m} />
+<MemberCard key={i} {...m}/>
 ))}
-
 </div>
 </>
 
-) : (
+):( 
 
 <>
-{/* Lead first row */}
-
+{/* 🔥 LEAD (highlight) */}
 {lead &&
-
-<div className="committee-row">
-
-<MemberCard {...lead} />
-
+<div className="committee-lead">
+<MemberCard {...lead}/>
 </div>
-
 }
 
-{/* Members second row */}
-
-<div className="committee-row">
-
+{/* MEMBERS */}
+<div className="committee-grid">
 {members.map((m,i)=>(
-<MemberCard key={i} {...m} />
+<MemberCard key={i} {...m}/>
 ))}
-
 </div>
 
 </>
@@ -198,6 +186,6 @@ onClick={()=>setActiveTab(i)}
 
 </div>
 
-)
+);
 
 }
