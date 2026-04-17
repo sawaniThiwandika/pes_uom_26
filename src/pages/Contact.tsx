@@ -1,4 +1,5 @@
 import { FaEnvelope, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
+import ContactForm from "../components/ContactForm";
 
 const CONTACT_CARDS = [
   {
@@ -168,6 +169,9 @@ export default function Contact() {
           ))}
         </div>
       </section>
+
+      {/* ── Day 4: Contact Form ── */}
+      <ContactForm />
     </div>
   );
 }
