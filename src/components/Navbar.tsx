@@ -91,33 +91,6 @@ export default function Navbar() {
                                 </Link>
                             );
                         })}
-
-                        {/* Glowing CTA */}
-                        <a
-                            href="mailto:pes@uom.lk"
-                            className="ml-4 px-5 py-2 rounded-md text-[13px] font-semibold
-                                       tracking-wide transition-all duration-300"
-                            style={{
-                                color:        "#4ade80",
-                                border:       "1px solid rgba(74,222,128,0.40)",
-                                background:   "rgba(74,222,128,0.07)",
-                                boxShadow:    "0 0 0 0 rgba(74,222,128,0)",
-                            }}
-                            onMouseEnter={e => {
-                                const el = e.currentTarget as HTMLElement;
-                                el.style.background  = "rgba(74,222,128,0.16)";
-                                el.style.borderColor = "rgba(74,222,128,0.70)";
-                                el.style.boxShadow   = "0 0 16px rgba(74,222,128,0.20)";
-                            }}
-                            onMouseLeave={e => {
-                                const el = e.currentTarget as HTMLElement;
-                                el.style.background  = "rgba(74,222,128,0.07)";
-                                el.style.borderColor = "rgba(74,222,128,0.40)";
-                                el.style.boxShadow   = "0 0 0 0 rgba(74,222,128,0)";
-                            }}
-                        >
-                            Contact Us
-                        </a>
                     </div>
 
                     {/* ── Hamburger ── */}
@@ -207,23 +180,11 @@ export default function Navbar() {
                     })}
                 </nav>
 
-                {/* Footer CTA */}
+                {/* Footer */}
                 <div
                     className="px-5 py-5"
                     style={{ borderTop: "1px solid rgba(74,222,128,0.10)" }}
                 >
-                    <a
-                        href="mailto:pes@uom.lk"
-                        className="flex items-center justify-center w-full py-2.5 rounded-md
-                                   text-sm font-semibold tracking-wide"
-                        style={{
-                            color:      "#4ade80",
-                            border:     "1px solid rgba(74,222,128,0.35)",
-                            background: "rgba(74,222,128,0.07)",
-                        }}
-                    >
-                        Contact Us
-                    </a>
                     <p className="text-white/20 text-[9px] text-center tracking-[0.18em] uppercase mt-5">
                         IEEE Power &amp; Energy Society
                     </p>

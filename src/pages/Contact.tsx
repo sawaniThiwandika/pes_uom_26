@@ -102,9 +102,9 @@ export default function Contact() {
                   "0 8px 20px rgba(0,0,0,0.08)";
               }}
             >
-              {/* Icon circle */}
+              {/* Icon circle with flip animation */}
               <div
-                className="w-14 h-14 rounded-full flex items-center justify-center text-white text-xl"
+                className="w-14 h-14 rounded-full flex items-center justify-center text-white text-xl contact-icon-flip"
                 style={{ background: "#2E7D32" }}
               >
                 {card.icon}
