@@ -4,19 +4,19 @@ import ContactForm from "../components/ContactForm";
 const CONTACT_CARDS = [
   {
     icon: <FaEnvelope />,
-    title: "Email Us",
-    lines: ["ieeepessbcuniversityofmoratuwa@gmail.com"],
-    href: "mailto:ieeepessbcuniversityofmoratuwa@gmail.com",
-    linkLabel: "Send an Email",
-  },
-  {
-    icon: <FaEnvelope />,
     title: "Mail Us",
     lines: [
       "IEEE PES Student Branch Chapter",
       "University of Moratuwa",
       "Moratuwa 10400, Sri Lanka",
     ],
+  },
+  {
+    icon: <FaEnvelope />,
+    title: "Email Us",
+    lines: ["ieeepessbcuniversityofmoratuwa@gmail.com"],
+    href: "mailto:ieeepessbcuniversityofmoratuwa@gmail.com",
+    linkLabel: "Send an Email",
   },
   {
     icon: (
