@@ -1,4 +1,4 @@
-import { FaEnvelope, FaFacebookF, FaLinkedinIn, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 
 const CONTACT_CARDS = [
   {
@@ -9,8 +9,8 @@ const CONTACT_CARDS = [
     linkLabel: "Send an Email",
   },
   {
-    icon: <FaMapMarkerAlt />,
-    title: "Visit Us",
+    icon: <FaEnvelope />,
+    title: "Mail Us",
     lines: [
       "IEEE PES Student Branch Chapter",
       "University of Moratuwa",
