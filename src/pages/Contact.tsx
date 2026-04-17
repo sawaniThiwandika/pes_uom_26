@@ -104,7 +104,7 @@ export default function Contact() {
               {/* Icon circle */}
               <div
                 className="w-14 h-14 rounded-full flex items-center justify-center text-white text-xl"
-                style={{ background: "var(--pes-green)" }}
+                style={{ background: "#2E7D32" }}
               >
                 {card.icon}
               </div>
@@ -122,12 +122,12 @@ export default function Contact() {
                 <a
                   href={card.href}
                   className="text-sm font-medium no-underline transition-colors duration-200"
-                  style={{ color: "var(--pes-green)" }}
+                  style={{ color: "#2E7D32" }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "var(--pes-green-light)";
+                    (e.currentTarget as HTMLElement).style.color = "#4CAF50";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "var(--pes-green)";
+                    (e.currentTarget as HTMLElement).style.color = "#2E7D32";
                   }}
                 >
                   {card.linkLabel}
@@ -147,7 +147,7 @@ export default function Contact() {
                       className="w-10 h-10 rounded-full flex items-center justify-center text-white
                                  transition-all duration-300 hover:scale-110"
                       style={{
-                        background: "var(--pes-green)",
+                        background: "#2E7D32",
                         boxShadow: "0 2px 8px rgba(46,125,50,0.3)",
                       }}
                       onMouseEnter={(e) => {
