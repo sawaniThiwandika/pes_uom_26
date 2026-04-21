@@ -9,7 +9,7 @@ const NAV_LINKS = [
     { to: "/about",      label: "About"      },
     { to: "/committees", label: "Committees" },
     { to: "/projects",   label: "Projects"   },
-    { to: "/contact",    label: "Contact"    },
+    { to: "/contact",    label: "Contact Us"    },
 ];
 
 export default function Navbar() {
