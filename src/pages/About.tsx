@@ -1,7 +1,6 @@
 
 import "../styles/pages.css";
 import energyVideo from "../assets/energy.mp4";
-import advisor from "../assets/Advisor.jpg";
 
 
 export default function About() {
@@ -74,44 +73,6 @@ export default function About() {
             recognized for the contributions of technology and of
             technical professionals in improving global conditions.
           </p>
-        </div>
-
-      </section>
-
-      {/* ADVISOR */}
-
-      <section className="advisor-section">
-
-        <h2 className="advisor-title">Advisor</h2>
-
-        <div className="advisor-card">
-
-          <div className="advisor-image-container">
-
-            <img
-              src={advisor}
-              alt="Advisor"
-              className="advisor-img"
-            />
-
-            <div className="advisor-overlay">
-
-              <p>B.Sc (Moratuwa), M.Eng. (Canada), P.Eng. (ON, Canada)</p>
-
-              <p>Senior Lecturer Gr. II</p>
-
-              <p>Department of Electrical Engineering</p>
-
-              <p>University of Moratuwa</p>
-
-            </div>
-
-          </div>
-
-          <h3>Mrs. K.A.T. Lasagani</h3>
-
-          <p className="advisor-role">IEEE PES Chapter Advisor</p>
-
         </div>
 
       </section>
