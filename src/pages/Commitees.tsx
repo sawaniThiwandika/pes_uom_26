@@ -1,13 +1,4 @@
 import { useState } from "react";
-import {
-  FaBullhorn,
-  FaCalendarAlt,
-  FaChartLine,
-  FaCode,
-  FaFeatherAlt,
-  FaPalette,
-  FaShieldAlt,
-} from "react-icons/fa";
 import MemberCard from "../components/MemberCard";
 import "../styles/pages.css";
 import advisor from "../assets/Advisor.webp";
@@ -49,7 +40,6 @@ export default function Committees() {
   const committees = [
     {
       title: "Executive Committee",
-      Icon: FaShieldAlt,
       members: [
         { name: "Kavishka Lakshan", role: "Chairman", image: kavishka },
         { name: "Nadun Walaketiya", role: "Vice Chairman", image: nadun },
@@ -60,7 +50,6 @@ export default function Committees() {
     },
     {
       title: "Public Relations",
-      Icon: FaBullhorn,
       members: [
         { name: "Vidura Jayawardhene", role: "Lead", image: vidura },
         { name: "Dulsika Mendis", role: "Member", image: dulsika },
@@ -69,7 +58,6 @@ export default function Committees() {
     },
     {
       title: "Organizing",
-      Icon: FaCalendarAlt,
       members: [
         { name: "Pabasara Piyumal", role: "Lead", image: pabasara },
         { name: "Shakya Marasingha", role: "Member", image: shakya },
@@ -82,7 +70,6 @@ export default function Committees() {
     },
     {
       title: "Creative Design",
-      Icon: FaPalette,
       members: [
         { name: "Chamiru Gajasinghe", role: "Lead", image: chamix },
         { name: "Easha Wanniarachchi", role: "Member", image: easha },
@@ -94,7 +81,6 @@ export default function Committees() {
     },
     {
       title: "Editorial",
-      Icon: FaFeatherAlt,
       members: [
         { name: "Shalani Ambalangodage", role: "Lead", image: shalani },
         { name: "Vindya Nilushika", role: "Member", image: vindya },
@@ -105,7 +91,6 @@ export default function Committees() {
     },
     {
       title: "Finance",
-      Icon: FaChartLine,
       members: [
         { name: "Charithma Dewmi", role: "Lead", image: charithma },
         { name: "Okindu Fernando", role: "Member", image: okindu },
@@ -113,7 +98,6 @@ export default function Committees() {
     },
     {
       title: "Web Development",
-      Icon: FaCode,
       members: [
         { name: "Sawani Thiwandika", role: "Lead", image: sawani },
         { name: "Chanupa Hansaja Vithanage", role: "Member", image: chanupa },
@@ -123,8 +107,8 @@ export default function Committees() {
   ];
 
   const current = committees[activeTab];
-  const lead = current.members.find((m) => m.role === "Lead");
-  const members = current.members.filter((m) => m.role !== "Lead");
+  const lead = current.members.find((member) => member.role === "Lead");
+  const members = current.members.filter((member) => member.role !== "Lead");
 
   return (
     <div className="committee-page">
@@ -138,10 +122,7 @@ export default function Committees() {
             onClick={() => setActiveTab(index)}
             type="button"
           >
-            <span className="tab-icon">
-              <committee.Icon />
-            </span>
-            <span>{committee.title}</span>
+            {committee.title}
           </button>
         ))}
       </div>

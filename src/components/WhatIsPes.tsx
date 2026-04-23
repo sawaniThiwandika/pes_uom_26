@@ -41,7 +41,7 @@ export default function WhatIsPES() {
                         <div className="relative w-full" style={{ paddingBottom: "56.25%" /* 16:9 */ }}>
                             <iframe
                                 className="absolute inset-0 w-full h-full"
-                                src="https://drive.google.com/file/d/1ynLbt7jdVEZI0yDHA8BFursAg5qTfauM/view?usp=sharing"
+                                src="https://www.youtube.com/embed/rwkSJX8lkgU"
                                 title="IEEE PES Promotional Video"
                                 frameBorder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

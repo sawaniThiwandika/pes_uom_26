@@ -1,4 +1,4 @@
-import volunteer from "../assets/volunteer/volunteer1.webp";
+import volunteer from "../assets/volunteer/volunteer.webp";
 
 export function VolunteerImage() {
     return (
