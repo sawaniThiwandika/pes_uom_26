@@ -146,6 +146,28 @@ export default function Committees() {
         ))}
       </div>
 
+      {activeTab === 0 && (
+        <section className="advisor-section committee-advisor">
+          <h2 className="advisor-title">Advisor</h2>
+
+          <div className="advisor-card">
+            <div className="advisor-image-container">
+              <img src={advisor} alt="Advisor" className="advisor-img" />
+
+              <div className="advisor-overlay">
+                <p>B.Sc (Moratuwa), M.Eng. (Canada), P.Eng. (ON, Canada)</p>
+                <p>Senior Lecturer Gr. II</p>
+                <p>Department of Electrical Engineering</p>
+                <p>University of Moratuwa</p>
+              </div>
+            </div>
+
+            <h3>Mrs. K.A.T. Lasagani</h3>
+            <p className="advisor-role">IEEE PES Chapter Advisor</p>
+          </div>
+        </section>
+      )}
+
       {current.title === "Executive Committee" ? (
         <>
           <div className="committee-row">
@@ -173,28 +195,6 @@ export default function Committees() {
             ))}
           </div>
         </>
-      )}
-
-      {activeTab === 0 && (
-        <section className="advisor-section committee-advisor">
-          <h2 className="advisor-title">Advisor</h2>
-
-          <div className="advisor-card">
-            <div className="advisor-image-container">
-              <img src={advisor} alt="Advisor" className="advisor-img" />
-
-              <div className="advisor-overlay">
-                <p>B.Sc (Moratuwa), M.Eng. (Canada), P.Eng. (ON, Canada)</p>
-                <p>Senior Lecturer Gr. II</p>
-                <p>Department of Electrical Engineering</p>
-                <p>University of Moratuwa</p>
-              </div>
-            </div>
-
-            <h3>Mrs. K.A.T. Lasagani</h3>
-            <p className="advisor-role">IEEE PES Chapter Advisor</p>
-          </div>
-        </section>
       )}
     </div>
   );
