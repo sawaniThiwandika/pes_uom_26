@@ -342,12 +342,11 @@ export default function Committees() {
         {/* Main Content */}
         <div className="relative z-10 max-w-6xl mx-auto">
           {/* Page Title */}
-          <h1 className="text-center text-3xl sm:text-4xl lg:text-6xl font-serif  text-[#0f1f12] mb-12 lg:mb-14">
+          <h1 className="text-center text-3xl sm:text-4xl lg:text-6xl font-serif text-[#0f1f12] mb-6 lg:mb-8">
             Committees
           </h1>
-
-          {/* Committee Tabs - FIXED: Grid layout on mobile matching original design */}
-          <div className="flex flex-wrap justify-center gap-2 lg:gap-2.5 w-full max-w-4xl mx-auto mb-12 lg:mb-14 md:flex-wrap">
+          <div
+              className="flex flex-wrap justify-center gap-2 lg:gap-2.5 w-full max-w-4xl mx-auto mb-12 lg:mb-14 md:flex-wrap">
             {/* Desktop layout: flex wrap */}
             <div className="hidden md:flex flex-wrap justify-center gap-2.5 w-full">
               {committees.map((committee, index) => (
@@ -368,14 +367,13 @@ export default function Committees() {
                             : "bg-[#e9f0e6] text-[#172017]"
                     }`}
                 >
-                  <committee.Icon />
+                  <committee.Icon/>
                 </span>
                     <span>{committee.title}</span>
                   </button>
               ))}
             </div>
 
-            {/* Mobile layout: 2-column grid matching original CSS */}
             <div className="md:hidden grid grid-cols-2 gap-2 w-full max-w-xs mx-auto">
               {committees.map((committee, index) => (
                   <button
@@ -399,7 +397,7 @@ export default function Committees() {
                             : "bg-[#e9f0e6] text-[#172017]"
                     }`}
                 >
-                  <committee.Icon />
+                  <committee.Icon/>
                 </span>
                     <span className="text-center text-xs">{committee.title}</span>
                   </button>
@@ -409,7 +407,8 @@ export default function Committees() {
 
           {activeTab === 0 && (
               <section className="text-center mb-16 lg:mb-20">
-                <div className="w-full max-w-xs h-80 bg-gradient-to-br from-white to-gray-100 rounded-3xl flex flex-col items-center justify-center p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-350 relative overflow-hidden group hover:-translate-y-1.5 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)] mx-auto">
+                <div
+                    className="w-full max-w-xs h-80 bg-gradient-to-br from-white to-gray-100 rounded-3xl flex flex-col items-center justify-center p-6 shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-350 relative overflow-hidden group hover:-translate-y-1.5 hover:shadow-[0_10px_25px_rgba(0,0,0,0.15)] mx-auto">
 
                   <div
                       className="absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none"
@@ -425,7 +424,8 @@ export default function Committees() {
                   <div className="flex flex-col items-center gap-4">
                     {/* Advisor Image Container */}
                     <div className="relative">
-                      <div className="relative w-40 h-52 rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(46,125,50,0.2)] transition-transform duration-300 group-hover:scale-105">
+                      <div
+                          className="relative w-40 h-52 rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(46,125,50,0.2)] transition-transform duration-300 group-hover:scale-105">
                         <img
                             src={advisor}
                             alt="Advisor"
@@ -433,7 +433,8 @@ export default function Committees() {
                         />
 
                         {/* Enhanced Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
+                        <div
+                            className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-3">
                           <div className="space-y-1.5">
                             <p className="text-xs text-white leading-relaxed font-medium">
                               B.Sc (Moratuwa), M.Eng. (Canada)
@@ -441,7 +442,7 @@ export default function Committees() {
                             <p className="text-xs text-white leading-relaxed font-medium">
                               P.Eng. (ON, Canada)
                             </p>
-                            <hr className="border-white/30 my-1.5" />
+                            <hr className="border-white/30 my-1.5"/>
                             <p className="text-xs text-white leading-relaxed">
                               Senior Lecturer Gr. II
                             </p>
