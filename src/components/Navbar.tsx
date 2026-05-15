@@ -195,9 +195,11 @@
 // }
 
 import { useState, useEffect, useRef, useCallback } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import {
+
   FaBars, FaTimes, FaHome, FaInfoCircle,
+
   FaUsers, FaProjectDiagram, FaHandsHelping, FaEnvelope,
 } from "react-icons/fa";
 import logo from "../assets/logo.png";
@@ -217,10 +219,15 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen]   = useState(false);
   const lastY   = useRef(0);
   const menuRef = useRef<HTMLDivElement>(null);
-  const location = useLocation();
+ // const location = useLocation();
+  const openMenu  = useCallback(() => setMenuOpen(true),  []);
+  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+
 
   /* Close on route change */
-  useEffect(() => { closeMenu(); }, [location.pathname]);
+
+ //useEffect(() => { closeMenu(); }, [location.pathname]);
 
   /* Body scroll lock */
   useEffect(() => {
@@ -239,7 +246,6 @@ export default function Navbar() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
-
   /* Escape key closes menu */
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") closeMenu(); };
@@ -247,8 +253,8 @@ export default function Navbar() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  const openMenu  = useCallback(() => setMenuOpen(true),  []);
-  const closeMenu = useCallback(() => setMenuOpen(false), []);
+
+
 
   return (
     <>

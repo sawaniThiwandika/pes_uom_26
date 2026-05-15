@@ -64,7 +64,7 @@ const awards: Award[] = [
 export default function AwardsPanel() {
   const [popup, setPopup] = useState<Award | null>(null);
   const [index, setIndex] = useState(0);
-  const [_, setBottom] = useState(20);
+const [, setBottom] = useState(20);
 
   /* 🔁 auto rotate (mobile only) */
   useEffect(() => {
