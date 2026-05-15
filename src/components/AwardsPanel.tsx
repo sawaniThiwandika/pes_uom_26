@@ -64,7 +64,7 @@ const awards: Award[] = [
 export default function AwardsPanel() {
   const [popup, setPopup] = useState<Award | null>(null);
   const [index, setIndex] = useState(0);
-const [, setBottom] = useState(20);
+  const [, setBottom] = useState(20);
 
   /* 🔁 auto rotate (mobile only) */
   useEffect(() => {
@@ -113,7 +113,7 @@ const [, setBottom] = useState(20);
   return (
     <>
       {/* ===== DESKTOP ===== */}
-      <div className="awards-desktop" style={{ bottom: 10, position: "fixed"}}>
+      <div className="awards-desktop" style={{ bottom: 10, position: "fixed" }}>
         {awards.map((award) => (
           <div
             key={award.id}
