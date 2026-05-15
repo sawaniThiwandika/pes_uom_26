@@ -848,7 +848,8 @@ function CardGrid({ children }: { children: React.ReactNode }) {
 // Wraps a MemberCard for the flex context (sm+), keeps aspect-ratio on mobile grid
 function CardSlot({ wide, children }: { wide?: boolean; children: React.ReactNode }) {
   return (
-    <div className={`${wide ? "col-span-2 sm:col-span-1" : ""} sm:w-[185px] lg:w-[200px]`}>
+    // wide=true (Lead) gets an emerald ring to signal hierarchy, NO col-span-2
+    <div className={`sm:w-[185px] lg:w-[200px] ${wide ? "lead-slot" : ""}`}>
       {children}
     </div>
   );
@@ -974,6 +975,18 @@ export default function Committees() {
           to   { opacity: 1; transform: translateY(0); }
         }
         .fade-up { animation: fadeUp 0.4s ease forwards; }
+
+        /* Lead card gets emerald ring — no col-span, 2-col grid on mobile */
+        .lead-slot > div {
+          box-shadow: 0 0 0 1.5px rgba(52,211,153,0.45),
+                      0 16px 48px rgba(0,0,0,0.55) !important;
+        }
+        .lead-slot > div::after {
+          content: '';
+          position: absolute; top: 0; left: 0; right: 0; height: 2px;
+          background: linear-gradient(90deg, transparent, #34d399, transparent);
+          pointer-events: none;
+        }
       `}</style>
 
       <div
