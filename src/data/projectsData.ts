@@ -1,30 +1,30 @@
 
-import GIEEE11 from "../../public/projects/gammedda/GIEEE11.jpeg";
-import GIEEE7  from "../../public/projects/gammedda/GIEEE7.jpeg";
-import GIEEE6  from "../../public/projects/gammedda/GIEEE6.jpeg";
-import GIEEE12 from "../../public/projects/gammedda/GIEEE12.jpeg";
-import GIEEE13 from "../../public/projects/gammedda/GIEEE13.jpeg";
+import GIEEE11 from "/projects/gammedda/GIEEE11.jpeg";
+import GIEEE7  from "/projects/gammedda/GIEEE7.jpeg";
+import GIEEE6  from "/projects/gammedda/GIEEE6.jpeg";
+import GIEEE12 from "/projects/gammedda/GIEEE12.jpeg";
+import GIEEE13 from "/projects/gammedda/GIEEE13.jpeg";
 
-import FV4 from "../../public/projects/fieldVisit/FV4.jpeg";
-import FV8 from "../../public/projects/fieldVisit/FV8.jpeg";
-import FV5 from "../../public/projects/fieldVisit/FV5.jpeg";
-import FV6 from "../../public/projects/fieldVisit/FV6.jpeg";
-import FV7 from "../../public/projects/fieldVisit/FV7.jpeg";
-import FV3 from "../../public/projects/fieldVisit/FV3.jpeg";
+import FV4 from "/projects/fieldVisit/FV4.jpeg";
+import FV8 from "/projects/fieldVisit/FV8.jpeg";
+import FV5 from "/projects/fieldVisit/FV5.jpeg";
+import FV6 from "/projects/fieldVisit/FV6.jpeg";
+import FV7 from "/projects/fieldVisit/FV7.jpeg";
+import FV3 from "/projects/fieldVisit/FV3.jpeg";
 
-import WIE2 from "../../public/projects/WIE/WIE2.jpeg";
-import WIE4 from "../../public/projects/WIE/WIE4.jpeg";
+import WIE2 from "/projects/WIE/WIE2.jpeg";
+import WIE4 from "/projects/WIE/WIE4.jpeg";
 
-import AIW4 from "../../public/projects/AIWorkShop/AIW4.jpeg";
-import AIW2 from "../../public/projects/AIWorkShop/AIW2.jpeg";
-import AIW1 from "../../public/projects/AIWorkShop/AIW1.jpeg";
-import AIW5 from "../../public/projects/AIWorkShop/AIW5.jpeg";
-import AIW9 from "../../public/projects/AIWorkShop/AIW9.jpeg";
+import AIW4 from "/projects/AIWorkShop/AIW4.jpeg";
+import AIW2 from "/projects/AIWorkShop/AIW2.jpeg";
+import AIW1 from "/projects/AIWorkShop/AIW1.jpeg";
+import AIW5 from "/projects/AIWorkShop/AIW5.jpeg";
+import AIW9 from "/projects/AIWorkShop/AIW9.jpeg";
 
-import BSC2 from "../../public/projects/BSC/BSC2.jpeg";
-import BSC4 from "../../public/projects/BSC/BSC4.jpeg";
+import BSC2 from "/projects/BSC/BSC2.jpeg";
+import BSC4 from "/projects/BSC/BSC4.jpeg";
 
-import Microgrid3 from "../../public/projects/microgrid/Microgrid3.jpeg";
+import Microgrid3 from "/projects/microgrid/Microgrid3.jpeg";
 
 export interface Project {
     id: number;
