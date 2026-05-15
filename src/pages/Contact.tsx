@@ -634,7 +634,7 @@ export default function Contact() {
       <div className="contact-root min-h-screen mt-12 lg:mt-0" ref={revealRef}>
         {/* ══ Hero ══════════════════════════════════════════════════════ */}
         <section
-          className="relative flex items-end overflow-hidden mt-20"
+          className="relative flex items-end overflow-hidden"
           style={{ minHeight: "54vh", paddingBottom: "80px" }}
         >
           {/* Ambient */}
@@ -648,8 +648,8 @@ export default function Contact() {
           <div
             className="absolute -top-20 left-1/2 -translate-x-1/2 pointer-events-none"
             style={{
-              width: "700px",
-              height: "500px",
+              width: "600px",
+              height: "400px",
               background:
                 "radial-gradient(ellipse, rgba(22,163,74,0.18) 0%, transparent 70%)",
               filter: "blur(80px)",
@@ -675,7 +675,7 @@ export default function Contact() {
 
           <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-10 lg:px-16">
             <p
-              className="c-up-1 text-[9px] sm:text-[10px] font-bold tracking-[0.32em] uppercase mb-5"
+              className="a-up-1 text-[9px] sm:text-[10px] font-bold tracking-[0.32em] uppercase mb-5 mt-28"
               style={{ color: "#34d399" }}
             >
               IEEE Power &amp; Energy Society · University of Moratuwa
