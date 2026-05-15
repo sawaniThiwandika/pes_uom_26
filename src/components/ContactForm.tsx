@@ -198,18 +198,40 @@
 //   );
 // }
 
+import axios from "axios";
 import { useState, useRef, useCallback } from "react";
 import { FaPaperPlane } from "react-icons/fa";
 
-interface Field { value: string; focused: boolean; error: string; }
+const FORMSPREE_URL = "https://formspree.io/f/mkokrnbq";
+
+interface Field {
+  value: string;
+  focused: boolean;
+  error: string;
+}
 
 function FloatInput({
-  id, label, value, focused, error, type = "text", rows,
-  onChange, onFocus, onBlur,
+  id,
+  label,
+  value,
+  focused,
+  error,
+  type = "text",
+  rows,
+  onChange,
+  onFocus,
+  onBlur,
 }: {
-  id: string; label: string; value: string; focused: boolean; error: string;
-  type?: string; rows?: number;
-  onChange: (v: string) => void; onFocus: () => void; onBlur: () => void;
+  id: string;
+  label: string;
+  value: string;
+  focused: boolean;
+  error: string;
+  type?: string;
+  rows?: number;
+  onChange: (v: string) => void;
+  onFocus: () => void;
+  onBlur: () => void;
 }) {
   const lifted = focused || value.length > 0;
   const Tag = rows ? "textarea" : "input";
@@ -217,21 +239,28 @@ function FloatInput({
   return (
     <div style={{ position: "relative", marginBottom: "6px" }}>
       {/* Floating label */}
-      <label htmlFor={id} style={{
-        position: "absolute",
-        left: "16px",
-        top: lifted ? "8px" : (rows ? "18px" : "50%"),
-        transform: lifted ? "none" : (rows ? "none" : "translateY(-50%)"),
-        fontSize: lifted ? "10px" : "14px",
-        fontWeight: lifted ? 600 : 400,
-        color: error ? "#f87171" : focused ? "#34d399" : "rgba(255,255,255,0.35)",
-        letterSpacing: lifted ? "0.1em" : "0",
-        textTransform: lifted ? "uppercase" : "none",
-        pointerEvents: "none",
-        transition: "all 0.22s cubic-bezier(0.22,1,0.36,1)",
-        zIndex: 1,
-        fontFamily: "'Outfit', sans-serif",
-      }}>
+      <label
+        htmlFor={id}
+        style={{
+          position: "absolute",
+          left: "16px",
+          top: lifted ? "8px" : rows ? "18px" : "50%",
+          transform: lifted ? "none" : rows ? "none" : "translateY(-50%)",
+          fontSize: lifted ? "10px" : "14px",
+          fontWeight: lifted ? 600 : 400,
+          color: error
+            ? "#f87171"
+            : focused
+              ? "#34d399"
+              : "rgba(255,255,255,0.35)",
+          letterSpacing: lifted ? "0.1em" : "0",
+          textTransform: lifted ? "uppercase" : "none",
+          pointerEvents: "none",
+          transition: "all 0.22s cubic-bezier(0.22,1,0.36,1)",
+          zIndex: 1,
+          fontFamily: "'Outfit', sans-serif",
+        }}
+      >
         {label}
       </label>
 
@@ -241,7 +270,9 @@ function FloatInput({
         type={type}
         value={value}
         rows={rows}
-        onChange={(e) => onChange((e.target as HTMLInputElement | HTMLTextAreaElement).value)}
+        onChange={(e) =>
+          onChange((e.target as HTMLInputElement | HTMLTextAreaElement).value)
+        }
         onFocus={onFocus}
         onBlur={onBlur}
         style={{
@@ -260,7 +291,9 @@ function FloatInput({
           outline: "none",
           resize: rows ? "none" : undefined,
           transition: "all 0.25s ease",
-          boxShadow: focused ? "0 0 0 3px rgba(52,211,153,0.08), inset 0 1px 0 rgba(255,255,255,0.04)" : "none",
+          boxShadow: focused
+            ? "0 0 0 3px rgba(52,211,153,0.08), inset 0 1px 0 rgba(255,255,255,0.04)"
+            : "none",
           backdropFilter: "blur(10px)",
           display: "block",
           boxSizing: "border-box",
@@ -269,146 +302,276 @@ function FloatInput({
 
       {/* Error */}
       {error && (
-        <p style={{ fontSize: "11px", color: "#f87171", marginTop: "4px", paddingLeft: "4px", fontFamily: "'Outfit', sans-serif" }}>
+        <p
+          style={{
+            fontSize: "11px",
+            color: "#f87171",
+            marginTop: "4px",
+            paddingLeft: "4px",
+            fontFamily: "'Outfit', sans-serif",
+          }}
+        >
           {error}
         </p>
       )}
 
       {/* Focus glow line */}
-      <div style={{
-        position: "absolute", bottom: 0, left: "16px", right: "16px", height: "1px",
-        background: "linear-gradient(90deg, transparent, #34d399, transparent)",
-        opacity: focused ? 1 : 0,
-        transition: "opacity 0.25s ease",
-        borderRadius: "999px",
-        pointerEvents: "none",
-      }} />
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: "16px",
+          right: "16px",
+          height: "1px",
+          background:
+            "linear-gradient(90deg, transparent, #34d399, transparent)",
+          opacity: focused ? 1 : 0,
+          transition: "opacity 0.25s ease",
+          borderRadius: "999px",
+          pointerEvents: "none",
+        }}
+      />
     </div>
   );
 }
 
 export default function ContactForm() {
-  const [fields, setFields] = useState<Record<string, Field>>({
-    name:    { value: "", focused: false, error: "" },
-    email:   { value: "", focused: false, error: "" },
+  const initialFields: Record<string, Field> = {
+    name: { value: "", focused: false, error: "" },
+    email: { value: "", focused: false, error: "" },
     subject: { value: "", focused: false, error: "" },
     message: { value: "", focused: false, error: "" },
-  });
-  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
+  };
+
+  const [fields, setFields] = useState(initialFields);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">(
+    "idle",
+  );
   const btnRef = useRef<HTMLButtonElement>(null);
 
   const update = (key: string, patch: Partial<Field>) =>
-    setFields(prev => ({ ...prev, [key]: { ...prev[key], ...patch } }));
+    setFields((prev) => ({ ...prev, [key]: { ...prev[key], ...patch } }));
 
   const validate = () => {
     let ok = true;
-    if (!fields.name.value.trim()) { update("name", { error: "Name is required" }); ok = false; }
-    if (!fields.email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) { update("email", { error: "Valid email required" }); ok = false; }
-    if (!fields.subject.value.trim()) { update("subject", { error: "Subject is required" }); ok = false; }
-    if (fields.message.value.trim().length < 10) { update("message", { error: "Message too short" }); ok = false; }
+    if (!fields.name.value.trim()) {
+      update("name", { error: "Name is required" });
+      ok = false;
+    }
+    if (!fields.email.value.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/)) {
+      update("email", { error: "Valid email required" });
+      ok = false;
+    }
+    if (!fields.subject.value.trim()) {
+      update("subject", { error: "Subject is required" });
+      ok = false;
+    }
+    if (fields.message.value.trim().length < 10) {
+      update("message", { error: "Message too short" });
+      ok = false;
+    }
     return ok;
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     if (!validate()) return;
     setStatus("sending");
-    await new Promise(r => setTimeout(r, 1400));
-    setStatus("sent");
+    try {
+      const formData = {
+        name: fields.name.value,
+        email: fields.email.value,
+        subject: fields.subject.value,
+        message: fields.message.value,
+      };
+
+      await axios.post(FORMSPREE_URL, formData, {
+        headers: { Accept: "application/json" },
+      });
+      setStatus("sent");
+      setFields(initialFields);
+    } catch {
+      setStatus("error");
+    }
   };
 
   /* Magnetic button */
   const onBtnMove = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    const el = btnRef.current; if (!el) return;
+    const el = btnRef.current;
+    if (!el) return;
     const { left, top, width, height } = el.getBoundingClientRect();
-    const x = (e.clientX - left - width  / 2) * 0.25;
-    const y = (e.clientY - top  - height / 2) * 0.25;
+    const x = (e.clientX - left - width / 2) * 0.25;
+    const y = (e.clientY - top - height / 2) * 0.25;
     el.style.transform = `translate(${x}px, ${y}px)`;
   }, []);
   const onBtnLeave = useCallback(() => {
-    const el = btnRef.current; if (!el) return;
+    const el = btnRef.current;
+    if (!el) return;
     el.style.transform = "translate(0,0)";
     el.style.transition = "transform 0.45s cubic-bezier(0.23,1,0.32,1)";
   }, []);
 
-  if (status === "sent") return (
-    <div style={{
-      textAlign: "center", padding: "60px 24px",
-      background: "rgba(52,211,153,0.05)",
-      border: "1px solid rgba(52,211,153,0.2)",
-      borderRadius: "20px", backdropFilter: "blur(16px)",
-    }}>
-      <div style={{ fontSize: "42px", marginBottom: "16px" }}>✓</div>
-      <h3 style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "28px", color: "#fff", marginBottom: "10px" }}>
-        Message Sent
-      </h3>
-      <p style={{ color: "rgba(255,255,255,0.45)", fontSize: "14px", fontFamily: "'Outfit', sans-serif" }}>
-        We'll get back to you as soon as possible.
-      </p>
-      <button onClick={() => { setStatus("idle"); Object.keys(fields).forEach(k => update(k, { value: "", error: "" })); }}
-        style={{ marginTop: "24px", padding: "10px 28px", borderRadius: "999px",
-          background: "rgba(52,211,153,0.12)", border: "1px solid rgba(52,211,153,0.3)",
-          color: "#34d399", cursor: "pointer", fontFamily: "'Outfit', sans-serif", fontSize: "13px" }}>
-        Send another
-      </button>
-    </div>
-  );
+  if (status === "sent")
+    return (
+      <div
+        style={{
+          textAlign: "center",
+          padding: "60px 24px",
+          background: "rgba(52,211,153,0.05)",
+          border: "1px solid rgba(52,211,153,0.2)",
+          borderRadius: "20px",
+          backdropFilter: "blur(16px)",
+        }}
+      >
+        <div style={{ fontSize: "42px", marginBottom: "16px" }}>✓</div>
+        <h3
+          style={{
+            fontFamily: "'Cormorant Garamond', serif",
+            fontSize: "28px",
+            color: "#fff",
+            marginBottom: "10px",
+          }}
+        >
+          Message Sent
+        </h3>
+        <p
+          style={{
+            color: "rgba(255,255,255,0.45)",
+            fontSize: "14px",
+            fontFamily: "'Outfit', sans-serif",
+          }}
+        >
+          We'll get back to you as soon as possible.
+        </p>
+        <button
+          onClick={() => {
+            setStatus("idle");
+            Object.keys(fields).forEach((k) =>
+              update(k, { value: "", error: "" }),
+            );
+          }}
+          style={{
+            marginTop: "24px",
+            padding: "10px 28px",
+            borderRadius: "999px",
+            background: "rgba(52,211,153,0.12)",
+            border: "1px solid rgba(52,211,153,0.3)",
+            color: "#34d399",
+            cursor: "pointer",
+            fontFamily: "'Outfit', sans-serif",
+            fontSize: "13px",
+          }}
+        >
+          Send another
+        </button>
+      </div>
+    );
 
   return (
-    <div style={{
-      background: "rgba(255,255,255,0.025)",
-      border: "1px solid rgba(255,255,255,0.07)",
-      borderRadius: "24px", padding: "clamp(24px,4vw,48px)",
-      backdropFilter: "blur(20px)",
-      boxShadow: "0 32px 80px rgba(0,0,0,0.35)",
-      fontFamily: "'Outfit', sans-serif",
-    }}>
-
+    <div
+      style={{
+        background: "rgba(255,255,255,0.025)",
+        border: "1px solid rgba(255,255,255,0.07)",
+        borderRadius: "24px",
+        padding: "clamp(24px,4vw,48px)",
+        backdropFilter: "blur(20px)",
+        boxShadow: "0 32px 80px rgba(0,0,0,0.35)",
+        fontFamily: "'Outfit', sans-serif",
+      }}
+    >
       {/* Row 1 — name + email */}
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", marginBottom: "12px" }}
-        className="form-row">
-        <FloatInput id="name" label="Full Name" {...fields.name}
-          onChange={v => update("name", { value: v, error: "" })}
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "12px",
+          marginBottom: "12px",
+        }}
+        className="form-row"
+      >
+        <FloatInput
+          id="name"
+          label="Full Name"
+          {...fields.name}
+          onChange={(v) => update("name", { value: v, error: "" })}
           onFocus={() => update("name", { focused: true })}
-          onBlur={() => update("name", { focused: false })} />
-        <FloatInput id="email" label="Email Address" type="email" {...fields.email}
-          onChange={v => update("email", { value: v, error: "" })}
+          onBlur={() => update("name", { focused: false })}
+        />
+        <FloatInput
+          id="email"
+          label="Email Address"
+          type="email"
+          {...fields.email}
+          onChange={(v) => update("email", { value: v, error: "" })}
           onFocus={() => update("email", { focused: true })}
-          onBlur={() => update("email", { focused: false })} />
+          onBlur={() => update("email", { focused: false })}
+        />
       </div>
 
       {/* Subject */}
       <div style={{ marginBottom: "12px" }}>
-        <FloatInput id="subject" label="Subject" {...fields.subject}
-          onChange={v => update("subject", { value: v, error: "" })}
+        <FloatInput
+          id="subject"
+          label="Subject"
+          {...fields.subject}
+          onChange={(v) => update("subject", { value: v, error: "" })}
           onFocus={() => update("subject", { focused: true })}
-          onBlur={() => update("subject", { focused: false })} />
+          onBlur={() => update("subject", { focused: false })}
+        />
       </div>
 
       {/* Message */}
       <div style={{ marginBottom: "20px" }}>
-        <FloatInput id="message" label="Your Message" rows={5} {...fields.message}
-          onChange={v => update("message", { value: v, error: "" })}
+        <FloatInput
+          id="message"
+          label="Your Message"
+          rows={5}
+          {...fields.message}
+          onChange={(v) => update("message", { value: v, error: "" })}
           onFocus={() => update("message", { focused: true })}
-          onBlur={() => update("message", { focused: false })} />
+          onBlur={() => update("message", { focused: false })}
+        />
       </div>
 
       {/* Submit */}
-      <button ref={btnRef}
-        onClick={handleSubmit} disabled={status === "sending"}
-        onMouseMove={onBtnMove} onMouseLeave={onBtnLeave}
+      <button
+        ref={btnRef}
+        onClick={handleSubmit}
+        disabled={status === "sending"}
+        onMouseMove={onBtnMove}
+        onMouseLeave={onBtnLeave}
         style={{
-          display: "flex", alignItems: "center", gap: "10px",
-          padding: "14px 32px", borderRadius: "999px",
-          background: status === "sending" ? "rgba(52,211,153,0.08)" : "rgba(52,211,153,0.14)",
+          display: "flex",
+          alignItems: "center",
+          gap: "10px",
+          padding: "14px 32px",
+          borderRadius: "999px",
+          background:
+            status === "sending"
+              ? "rgba(52,211,153,0.08)"
+              : "rgba(52,211,153,0.14)",
           border: "1px solid rgba(52,211,153,0.35)",
-          color: "#34d399", cursor: status === "sending" ? "not-allowed" : "pointer",
-          fontSize: "14px", fontWeight: 600, fontFamily: "'Outfit', sans-serif",
-          letterSpacing: "0.04em", transition: "background 0.25s ease, box-shadow 0.25s ease",
+          color: "#34d399",
+          cursor: status === "sending" ? "not-allowed" : "pointer",
+          fontSize: "14px",
+          fontWeight: 600,
+          fontFamily: "'Outfit', sans-serif",
+          letterSpacing: "0.04em",
+          transition: "background 0.25s ease, box-shadow 0.25s ease",
           boxShadow: "0 0 24px rgba(52,211,153,0.1)",
         }}
-        onMouseEnter={(e) => { if (status !== "sending") (e.currentTarget as HTMLElement).style.background = "rgba(52,211,153,0.22)"; }}
+        onMouseEnter={(e) => {
+          if (status !== "sending")
+            (e.currentTarget as HTMLElement).style.background =
+              "rgba(52,211,153,0.22)";
+        }}
       >
-        <FaPaperPlane size={13} style={{ transform: status === "sending" ? "none" : "rotate(-10deg)" }} />
+        <FaPaperPlane
+          size={13}
+          style={{
+            transform: status === "sending" ? "none" : "rotate(-10deg)",
+          }}
+        />
         {status === "sending" ? "Sending…" : "Send Message"}
       </button>
 

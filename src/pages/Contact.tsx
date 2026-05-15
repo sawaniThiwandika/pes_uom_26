@@ -531,8 +531,8 @@ const CONTACT_CARDS = [
   {
     Icon: FaEnvelope,
     title: "Email Us",
-    lines: ["ieeepessbcuniversityofmoratuwa@gmail.com"],
-    href: "mailto:ieeepessbcuniversityofmoratuwa@gmail.com",
+    lines: ["ieeepessbuom25@gmail.com"],
+    href: "mailto:ieeepessbuom25@gmail.com",
     linkLabel: "Send an Email",
   },
   {
