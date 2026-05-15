@@ -135,7 +135,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FaArrowRight, FaBolt, FaUsers, FaProjectDiagram } from "react-icons/fa";
+import { FaArrowRight, FaUsers, FaProjectDiagram } from "react-icons/fa";
 
 const WORDS = ["Innovation", "Leadership", "Excellence", "Power"];
 

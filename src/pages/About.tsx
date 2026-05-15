@@ -879,7 +879,9 @@ function StatCounter({
   suffix: string;
   label: string;
 }) {
-  const { value, ref } = useCounter(num, 1800);
+  const { value} = useCounter(num, 1800);
+    const ref = useRef(null);
+
   return (
     <div
       className="about-stat-card group relative rounded-2xl p-5 border overflow-hidden"
