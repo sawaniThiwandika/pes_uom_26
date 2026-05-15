@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 export function useCounter(target: number, duration = 1800) {
   const [value, setValue] = useState(0);
-  const ref = useRef<HTMLSpanElement>(null);
+  const ref = useRef(null);
   const started = useRef(false);
 
   useEffect(() => {

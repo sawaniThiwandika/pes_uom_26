@@ -197,7 +197,9 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { NavLink} from "react-router-dom";
 import {
-   FaBars, FaTimes, FaHome, FaInfoCircle,
+
+  FaBars, FaTimes, FaHome, FaInfoCircle,
+
   FaUsers, FaProjectDiagram, FaHandsHelping, FaEnvelope,
 } from "react-icons/fa";
 import logo from "../assets/logo.png";
@@ -462,11 +464,8 @@ export default function Navbar() {
         {/* Header */}
         <div className="nav-panel-header">
           <div>
-            <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: "20px", fontWeight: 700, color: "#fff" }}>
-              IEEE PES
-            </div>
-            <div style={{ fontSize: "9px", color: "#34d399", letterSpacing: "0.2em", textTransform: "uppercase", marginTop: "1px" }}>
-              University of Moratuwa
+            <div className="flex items-center gap-3">
+              <img src={logo} alt="IEEE PES" className="h-9 w-auto" />
             </div>
           </div>
           <button className="nav-panel-close" onClick={closeMenu} aria-label="Close menu">

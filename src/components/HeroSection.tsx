@@ -426,10 +426,9 @@ export default function HeroSection() {
           {/* Stats */}
           <div className="hero-stats h-up-5" ref={statsRef}>
             {[
-              { num: "7+",  label: "Committees" },
               { num: "30+", label: "Members" },
-              { num: "6+",  label: "Events / Year" },
-              { num: "3+",  label: "Years Active" },
+              { num: "8+",  label: "Events / Year" },
+              { num: "5+",  label: "Years Active" },
             ].map(({ num, label }) => (
               <div key={label} className="hero-stat">
                 <span className="hero-stat-num">{num}</span>

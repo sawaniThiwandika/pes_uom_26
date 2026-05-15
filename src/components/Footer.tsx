@@ -66,7 +66,7 @@ const SOCIALS = [
     label: "Facebook", Icon: FaFacebookF },
   { href: "https://www.linkedin.com/company/ieee-pes-student-branch-chapter-of-university-of-moratuwa/",
     label: "LinkedIn", Icon: FaLinkedinIn },
-  { href: "mailto:ieeepessbcuniversityofmoratuwa@gmail.com",
+  { href: "mailto:ieeepessbuom25@gmail.com",
     label: "Email", Icon: FaEnvelope },
 ];
 
@@ -292,17 +292,17 @@ export default function Footer() {
             <div className="footer-contact-row">
               <div className="footer-contact-icon"><FaMapMarkerAlt /></div>
               <p className="footer-contact-text">
-                Dept. of Electrical Engineering<br />
+                IEEE PES Student Branch Chapter<br />
                 University of Moratuwa<br />
                 Moratuwa 10400, Sri Lanka
               </p>
             </div>
             <div className="footer-contact-row">
               <div className="footer-contact-icon"><FaEnvelope /></div>
-              <a href="mailto:ieeepessbcuniversityofmoratuwa@gmail.com"
+              <a href="mailto:ieeepessbuom25@gmail.com"
                 className="footer-contact-text"
                 style={{ color: "rgba(52,211,153,0.6)", textDecoration: "none" }}>
-                ieeepessbcuniversityofmoratuwa<br />@gmail.com
+                ieeepessbuom25<br />@gmail.com
               </a>
             </div>
           </div>
