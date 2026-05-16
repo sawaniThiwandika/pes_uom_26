@@ -50,8 +50,8 @@ export const committees = [
         name: "Kavishka Lakshan",
         role: "Chairman",
         image: kavishka,
-        email: "",
-        linkedin: "https://linkedin.com",
+        email: "lakshanwnk387@gmail.com",
+        linkedin: "https://www.linkedin.com/in/kavishka-lakshan-3b2261323?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       },
       {
         name: "Nadun Walaketiya",
