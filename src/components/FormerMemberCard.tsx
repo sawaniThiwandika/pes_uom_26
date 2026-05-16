@@ -58,7 +58,8 @@ export default function FormerMemberCard({
             className="w-full h-full flex items-center justify-center"
             style={{ background: "rgba(52,211,153,0.08)" }}
           >
-            <span
+            <FaUserCircle/>
+            {/* <span
               style={{
                 fontFamily: "'Cormorant Garamond', serif",
                 fontSize: "16px",
@@ -71,7 +72,7 @@ export default function FormerMemberCard({
                 .map((w) => w[0])
                 .slice(0, 2)
                 .join("")}
-            </span>
+            </span> */}
           </div>
         )}
       </div>
