@@ -357,7 +357,7 @@ export default function Committees() {
 
       <div
         className="comm-root relative w-full min-h-screen overflow-x-hidden mt-12 lg:mt-0 px-4 sm:px-8 lg:px-20 py-10 sm:py-16 md:py-20"
-        style={{ background: "#060d07" }}
+        // style={{ background: "#060d07" }}
       >
         {/* Ambient glows */}
         <div className="absolute inset-0 pointer-events-none">

@@ -5,7 +5,7 @@ export function VolunteerHero() {
   return (
     <section
       className="relative min-h-screen flex items-center px-6 sm:px-12 lg:px-20 pt-24 pb-16 overflow-hidden"
-      style={{ background: "#060d07" }}
+    //   style={{ background: "#060d07" }}
     >
       {/* Ambient glows — matches site theme */}
       <div className="absolute inset-0 pointer-events-none">
