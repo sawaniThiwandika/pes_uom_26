@@ -167,7 +167,7 @@ export default function HeroSection() {
           align-items: center; justify-content: center;
           overflow: hidden;
           font-family: 'Outfit', sans-serif;
-          padding: 100px 24px 80px;
+          padding: 25px 24px 80px;
           text-align: center;
         }
 
@@ -440,7 +440,7 @@ export default function HeroSection() {
 
         {/* Scroll cue */}
         <div className="hero-scroll">
-          Scroll
+          
           <div className="hero-scroll-bar">
             <div className="hero-scroll-fill" />
           </div>

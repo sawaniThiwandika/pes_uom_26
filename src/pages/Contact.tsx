@@ -618,17 +618,35 @@ export default function Contact() {
           background: rgba(52,211,153,0.08); border: 1px solid rgba(52,211,153,0.25); color: #6ee7b7;
         }
 
-        /* Scanning grid lines on hero */
-        @keyframes scanLine {
-          from { transform: translateY(-100%); opacity: 0.4; }
-          to   { transform: translateY(100vh);  opacity: 0; }
+        /* Tech grid hero background */
+        .contact-hero-grid {
+          position: absolute; inset: 0; overflow: hidden; pointer-events: none;
         }
-        .scan-line {
+        /* Animated grid line sweep */
+        @keyframes gridSweep {
+          0%   { opacity: 0; transform: translateY(-2px); }
+          10%  { opacity: 1; }
+          90%  { opacity: 1; }
+          100% { opacity: 0; transform: translateY(2px); }
+        }
+        .grid-sweep-h {
           position: absolute; left: 0; right: 0; height: 1px;
-          background: linear-gradient(90deg, transparent, rgba(52,211,153,0.4), transparent);
-          pointer-events: none;
-          animation: scanLine 4s linear infinite;
+          background: linear-gradient(90deg, transparent 0%, rgba(52,211,153,0.35) 30%, rgba(52,211,153,0.55) 50%, rgba(52,211,153,0.35) 70%, transparent 100%);
+          animation: gridSweep 5s ease-in-out infinite;
         }
+        .grid-sweep-v {
+          position: absolute; top: 0; bottom: 0; width: 1px;
+          background: linear-gradient(180deg, transparent 0%, rgba(52,211,153,0.3) 30%, rgba(52,211,153,0.5) 50%, rgba(52,211,153,0.3) 70%, transparent 100%);
+          animation: gridSweep 6s ease-in-out infinite;
+        }
+        /* Corner bracket ornaments */
+        .corner-tl, .corner-tr, .corner-bl, .corner-br {
+          position: absolute; width: 20px; height: 20px; pointer-events: none;
+        }
+        .corner-tl { top: 24px; left: 24px; border-top: 1.5px solid rgba(52,211,153,0.5); border-left: 1.5px solid rgba(52,211,153,0.5); }
+        .corner-tr { top: 24px; right: 24px; border-top: 1.5px solid rgba(52,211,153,0.5); border-right: 1.5px solid rgba(52,211,153,0.5); }
+        .corner-bl { bottom: 24px; left: 24px; border-bottom: 1.5px solid rgba(52,211,153,0.5); border-left: 1.5px solid rgba(52,211,153,0.5); }
+        .corner-br { bottom: 24px; right: 24px; border-bottom: 1.5px solid rgba(52,211,153,0.5); border-right: 1.5px solid rgba(52,211,153,0.5); }
       `}</style>
 
       <div className="contact-root min-h-screen mt-12 lg:mt-0" ref={revealRef}>
@@ -656,22 +674,36 @@ export default function Contact() {
             }}
           />
 
-          {/* Scanning line — surveillance/energy grid metaphor */}
-          <div className="scan-line" style={{ animationDelay: "0s" }} />
-          <div className="scan-line" style={{ animationDelay: "2s" }} />
+          {/* Tech grid overlay */}
+          <div className="contact-hero-grid">
+            {/* SVG grid pattern */}
+            <svg width="100%" height="100%" style={{ position: "absolute", inset: 0, opacity: 0.12 }}>
+              <defs>
+                <pattern id="heroGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+                  <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(52,211,153,1)" strokeWidth="0.5"/>
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#heroGrid)" />
+            </svg>
 
-          {/* Horizontal grid */}
-          {[...Array(5)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute left-0 right-0 pointer-events-none"
-              style={{
-                top: `${(i + 1) * 18}%`,
-                height: "1px",
-                background: "rgba(255,255,255,0.022)",
-              }}
-            />
-          ))}
+            {/* Animated sweep lines */}
+            {/* <div className="grid-sweep-h" style={{ top: "28%", animationDelay: "0s" }} />
+            <div className="grid-sweep-h" style={{ top: "62%", animationDelay: "2.5s" }} />
+            <div className="grid-sweep-v" style={{ left: "25%", animationDelay: "1s" }} />
+            <div className="grid-sweep-v" style={{ left: "75%", animationDelay: "3.5s" }} /> */}
+
+            {/* Corner brackets */}
+            <div className="corner-tl" /><div className="corner-tr" />
+            <div className="corner-bl" /><div className="corner-br" />
+
+            {/* Coordinate labels — HUD aesthetic */}
+            <span style={{ position: "absolute", bottom: "18px", left: "28px", fontFamily: "'Outfit',sans-serif", fontSize: "9px", color: "rgba(52,211,153,0.4)", letterSpacing: "0.12em", fontWeight: 500 }}>
+              6.8°N 79.9°E
+            </span>
+            <span style={{ position: "absolute", bottom: "18px", right: "28px", fontFamily: "'Outfit',sans-serif", fontSize: "9px", color: "rgba(52,211,153,0.4)", letterSpacing: "0.12em", fontWeight: 500 }}>
+              UoM · IEEE PES
+            </span>
+          </div>
 
           <div className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-10 lg:px-16">
             <p
