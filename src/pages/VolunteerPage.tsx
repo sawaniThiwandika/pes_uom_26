@@ -1,13 +1,9 @@
-
-import {VolunteerHero} from "../components/VolunteerHero.tsx";
-
+import { VolunteerHero } from "../components/VolunteerHero.tsx";
 
 export default function VolunteerPage() {
-    return (
-        <>
-
-            <VolunteerHero />
-
-        </>
-    );
+  return (
+    <>
+      <VolunteerHero />
+    </>
+  );
 }
