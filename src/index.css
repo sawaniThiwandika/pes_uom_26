@@ -1,18 +1,22 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap");
+/* ── Font import — single source of truth for all typography ─── */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ── Design tokens ─────────────────────────────────────────────── */
+/* ── Design tokens ──────────────────────────────────────────── */
 :root {
   --accent: #34d399;
   --accent-muted: #6ee7b7;
   --bg: #060d07;
+
+  /* Typography — used site-wide */
   --font-display: "Cormorant Garamond", Georgia, serif;
   --font-body: "Outfit", system-ui, sans-serif;
 }
 
+/* ── Reset ───────────────────────────────────────────────────── */
 *,
 *::before,
 *::after {
@@ -28,10 +32,31 @@ body {
   background: var(--bg);
   color: #f3f4f6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Scrollbar */
+/* ── Typography base classes — apply globally ─────────────────
+   Any element wanting display/serif font just adds class "font-display"
+   or uses var(--font-display). Tailwind's font-* utilities also work.
+─────────────────────────────────────────────────────────────── */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+}
+
+/* Utility classes matching both naming conventions */
+.font-display,
+.font-serif {
+  font-family: var(--font-display) !important;
+}
+.font-body {
+  font-family: var(--font-body) !important;
+}
+
+/* ── Scrollbar ───────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -46,24 +71,17 @@ body {
   background: rgba(52, 211, 153, 0.42);
 }
 
-/* Selection */
+/* ── Selection ───────────────────────────────────────────────── */
 ::selection {
   background: rgba(52, 211, 153, 0.25);
   color: #fff;
 }
 
-/* ── Global scroll reveal ────────────────────────────────────────
-   Components that use data-reveal get this base state.
-   The sr-visible class is added by useScrollReveal hook.
-───────────────────────────────────────────────────────────────── */
+/* ── Global scroll reveal ────────────────────────────────────── */
 [data-reveal] {
   opacity: 0;
   transform: translateY(28px);
   transition:
     opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-[data-reveal].sr-visible {
-  opacity: 1;
-  transform: translateY(0);
 }

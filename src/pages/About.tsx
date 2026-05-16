@@ -879,8 +879,7 @@ function StatCounter({
   suffix: string;
   label: string;
 }) {
-  const { value} = useCounter(num, 1800);
-    const ref = useRef(null);
+  const { value, ref } = useCounter(num, 1800);
 
   return (
     <div
