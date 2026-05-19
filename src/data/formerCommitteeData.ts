@@ -9,6 +9,7 @@ import secretary2122 from "/formercommittees/secretary2122.webp"
 import secretary2223 from "/formercommittees/secretary2223.webp"
 import secretary2324 from "/formercommittees/secretary2324.webp"
 
+import treasurer2122 from "/formercommittees/treasurer2122.webp"
 import treasurer2223 from "/formercommittees/treasurer2223.webp"
 import treasurer2324 from "/formercommittees/treasurer2324.webp"
 
@@ -173,7 +174,7 @@ export const formerCommittees: FormerYear[] = [
       {
         name: "Inosha Kavindi",
         role: "Treasurer",
-        image: "",
+        image: treasurer2122,
         email: "inoshasoori@gmail.com",
         linkedin: "https://www.linkedin.com/in/inosha-kavindi",
       },
