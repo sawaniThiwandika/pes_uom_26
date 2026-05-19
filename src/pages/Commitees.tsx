@@ -24,12 +24,14 @@ function CircuitTabs({
     const container = scrollRef.current;
     if (!container) return;
     const active = container.children[activeTab] as HTMLElement;
-    if (active)
-      active.scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
+    if (!active) return;
+
+    // Manually scroll the container — never use scrollIntoView on
+    // horizontally scrollable mobile strips; it can fall back to
+    // scrolling the document instead of the container.
+    const scrollTarget =
+      active.offsetLeft - container.offsetWidth / 2 + active.offsetWidth / 2;
+    container.scrollTo({ left: Math.max(0, scrollTarget), behavior: "smooth" });
   }, [activeTab]);
 
   return (
