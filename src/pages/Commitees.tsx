@@ -209,7 +209,14 @@ function CircuitTabs({
       <div
         ref={scrollRef}
         className="md:hidden flex gap-2 overflow-x-auto pb-1"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+        style={{
+          scrollbarWidth: "none",
+          msOverflowStyle: "none",
+          width: "100%",
+          maxWidth: "100vw",
+          boxSizing: "border-box",
+          overscrollBehaviorX: "contain",
+        }}
       >
         {committees.map((c, i) => {
           const isActive = activeTab === i;
@@ -459,13 +466,13 @@ export default function Committees() {
                   {/* Photo strip */}
                   <div
                     className="relative flex-shrink-0 overflow-hidden"
-                    style={{ width: "clamp(72px,10vw,100px)" }}
+                    style={{ width: "clamp(96px,13vw,130px)" }}
                   >
                     <img
                       src={advisor}
                       alt="Advisor"
                       className="advisor-photo w-full h-full object-cover object-top"
-                      style={{ minHeight: "88px" }}
+                      style={{ minHeight: "110px" }}
                     />
                     <div
                       className="absolute inset-0"
