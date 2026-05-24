@@ -15,39 +15,39 @@ export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   if (loading) {
-  return (
-    <div
-      className="proj-root"
-      style={{
-        background: "#060d07",
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div style={{ textAlign: "center" }}>
-        <div className="loading-grid">
-          {Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="loading-card" />
-          ))}
+    return (
+      <div
+        className="proj-root"
+        style={{
+          background: "#060d07",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <div className="loading-grid">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="loading-card" />
+            ))}
+          </div>
+
+          <div
+            style={{
+              marginTop: "18px",
+              fontSize: "11px",
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              color: "#6ee7b7",
+              opacity: 0.7,
+            }}
+          >
+            Loading Projects
+          </div>
         </div>
 
-        <div
-          style={{
-            marginTop: "18px",
-            fontSize: "11px",
-            letterSpacing: "0.25em",
-            textTransform: "uppercase",
-            color: "#6ee7b7",
-            opacity: 0.7,
-          }}
-        >
-          Loading Projects
-        </div>
-      </div>
-
-      <style>{`
+        <style>{`
         .loading-grid {
           display: grid;
           grid-template-columns: repeat(3, 64px);
@@ -90,9 +90,9 @@ export default function ProjectsPage() {
           }
         }
       `}</style>
-    </div>
-  );
-}
+      </div>
+    );
+  }
 
   const totalPages = Math.ceil(projects.length / PAGE_SIZE);
   const pageProjects = projects.slice(
