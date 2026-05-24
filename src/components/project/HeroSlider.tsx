@@ -94,8 +94,8 @@ export default function HeroSlider() {
                     className="text-sm sm:text-base max-w-lg leading-relaxed"
                     style={{color: "rgba(220,235,220,0.85)"}}
                 >
-                    Events,Sessions and outreach programs run by IEEE PES Student Branch Chapter, University of
-                    Moratuwa.
+                    Events, Sessions, and Outreach Programs organized by the IEEE PES Student Branch Chapter,
+                    University of Moratuwa.
                 </p>
 
                 <div className="flex items-center gap-3 mt-6">

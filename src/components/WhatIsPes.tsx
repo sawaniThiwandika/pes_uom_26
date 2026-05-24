@@ -15,9 +15,9 @@ export default function WhatIsPES() {
                         className="text-sm sm:text-base leading-relaxed max-w-2xl"
                         style={{ color: "rgba(200,220,230,0.70)" }}
                     >
-                        IEEE Power &amp; Energy Society (PES) is the world's largest forum to share
-                        technological developments in the electric power industry as well as to educate
-                        members developing standards. The IEEE PES Student Branch Chapter University of
+                        IEEE Power &amp; Energy Society (PES) is the world's largest forum for sharing
+                        technological developments in the electric power industry as well as to educating
+                        members and developing standards. The Student Branch Chapter University of
                         Moratuwa strives to realize the vision and mission of IEEE PES through volunteering
                         and spreading awareness on means to gain experience and exposure in the field of
                         electric power. The student branch chapter annually organizes the Undergraduate
