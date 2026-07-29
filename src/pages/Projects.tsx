@@ -127,7 +127,7 @@ export default function ProjectsPage() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
-        .proj-root { font-family: 'Outfit', sans-serif; }
+        .proj-root { font-family: var(--font-body); }
 
         .proj-nav-btn {
           transition: all 0.25s ease;

@@ -2,7 +2,7 @@ export function VolunteerContent() {
   return (
     <div
       className="w-full flex flex-col items-center text-center gap-6 max-w-xl"
-      style={{ fontFamily: "'Outfit', sans-serif" }}
+      style={{ fontFamily: "var(--font-body)" }}
     >
       {/* Badge */}
       <span
@@ -75,7 +75,7 @@ export function VolunteerContent() {
           border: "1px solid rgba(52,211,153,0.4)",
           background: "rgba(52,211,153,0.08)",
           transition: "all 0.3s cubic-bezier(0.22,1,0.36,1)",
-          fontFamily: "'Outfit', sans-serif",
+          fontFamily: "var(--font-body)",
         }}
         onMouseEnter={(e) => {
           const el = e.currentTarget as HTMLElement;

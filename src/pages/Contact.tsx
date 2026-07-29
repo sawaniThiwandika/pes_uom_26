@@ -52,7 +52,7 @@ export default function Contact() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
 
-        .contact-root  { font-family: 'Outfit', sans-serif; background: #060d07; }
+        .contact-root  { font-family: var(--font-body); background: #060d07; }
         .contact-serif { font-family: 'Cormorant Garamond', serif; }
 
         [data-reveal] {

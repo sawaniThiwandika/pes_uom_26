@@ -32,7 +32,7 @@ export default function Footer() {
           position: relative; overflow: hidden;
           background: #030a04;
           border-top: 1px solid rgba(255,255,255,0.05);
-          font-family: 'Outfit', sans-serif;
+          font-family: var(--font-body);
         }
 
         /* Top emerald gradient line */

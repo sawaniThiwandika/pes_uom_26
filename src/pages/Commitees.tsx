@@ -193,7 +193,7 @@ function CircuitTabs({
             style={{
               textAlign: "center",
               marginTop: "14px",
-              fontFamily: "'Outfit', sans-serif",
+              fontFamily: "var(--font-body)",
               fontSize: "13px",
               fontWeight: 600,
               color: "#6ee7b7",
@@ -300,7 +300,7 @@ export default function Committees() {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
-        .comm-root  { font-family: 'Outfit', sans-serif; }
+        .comm-root  { font-family: var(--font-body); }
         .comm-title { font-family: 'Cormorant Garamond', serif; }
 
         /* Circuit tile ring pulse */
