@@ -4,6 +4,9 @@ import ProjectCard from "../components/project/ProjectCard.tsx";
 import ProjectModal from "../components/project/ProjectModal.tsx";
 import useCSVDataLoader from "../hooks/useCSVDataLoader.ts";
 import type { Project } from "../data/projectsData.ts";
+import { useMemo } from "react";
+
+
 
 const PAGE_SIZE = 3;
 
@@ -13,6 +16,19 @@ export default function ProjectsPage() {
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJc6eWMxIUG2kFqHig6dPE4ikhxDyQLaeE_ho-hIzWOpaPXwFontlzv0R6QAkWY8tylpO61nf_XMkG/pub?gid=0&single=true&output=csv";
   const { csvData: projects, loading } = useCSVDataLoader(csvURL);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const heroImages = useMemo(() => {
+  return projects
+    .map(p => {
+      const imgs = p.images || [];
+      if (imgs.length === 0) return [];
+
+      const shuffled = [...imgs].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, 2);
+    })
+    .flat()
+    .filter(Boolean);
+}, [projects]);
 
   if (loading) {
     return (
@@ -133,7 +149,7 @@ export default function ProjectsPage() {
       >
         {/* Hero Slider */}
         <div className="pt-12 lg:pt-0">
-          <HeroSlider />
+          <HeroSlider images={heroImages} />
         </div>
 
         {/* ── Section header ── */}

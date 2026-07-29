@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+   import { useEffect, useState } from "react";
 import Papa from "papaparse";
 
 export interface Project {
@@ -88,6 +88,3 @@ const useCSVDataLoader = (
 };
 
 export default useCSVDataLoader;
-
-// Return only completed items:
-// const { csvData, loading } = useCSVDataLoader(csvUrl, row => row.status === "completed");
