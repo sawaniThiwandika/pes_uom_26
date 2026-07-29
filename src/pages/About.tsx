@@ -94,7 +94,7 @@
 //       <style>{`
 //         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
 
-//         .about-root { font-family: 'Outfit', sans-serif; }
+//         .about-root { font-family: var(--font-body); }
 //         .about-display { font-family: 'Cormorant Garamond', serif; }
 
 //         @keyframes aUp {
@@ -580,7 +580,7 @@
 //       <style>{`
 //         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
 
-//         .about-root   { font-family: 'Outfit', sans-serif; }
+//         .about-root   { font-family: var(--font-body); }
 //         .about-display{ font-family: 'Cormorant Garamond', serif; }
 
 //         /* ── Scroll reveal base state ── */
@@ -990,7 +990,7 @@ export default function About() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap');
 
-        .about-root   { font-family: 'Outfit', sans-serif; }
+        .about-root   { font-family: var(--font-body); }
         .about-display{ font-family: 'Cormorant Garamond', serif; }
 
         /* ── Scroll reveal base state ── */

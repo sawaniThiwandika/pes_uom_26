@@ -31,7 +31,7 @@ export default function HeroSection() {
           display: flex; flex-direction: column;
           align-items: center; justify-content: center;
           overflow: hidden;
-          font-family: 'Outfit', sans-serif;
+          font-family: var(--font-body);
           padding: 25px 24px 80px;
           text-align: center;
         }
@@ -172,7 +172,7 @@ export default function HeroSection() {
           background: linear-gradient(135deg, rgba(52,211,153,0.22), rgba(22,163,74,0.14));
           border: 1px solid rgba(52,211,153,0.4);
           color: #6ee7b7; font-size: 14px; font-weight: 600;
-          text-decoration: none; font-family: 'Outfit', sans-serif;
+          text-decoration: none; font-family: var(--font-body);
           transition: all 0.3s cubic-bezier(0.22,1,0.36,1);
           box-shadow: 0 0 24px rgba(52,211,153,0.12);
         }
@@ -188,7 +188,7 @@ export default function HeroSection() {
           background: rgba(255,255,255,0.04);
           border: 1px solid rgba(255,255,255,0.10);
           color: rgba(255,255,255,0.55); font-size: 14px; font-weight: 500;
-          text-decoration: none; font-family: 'Outfit', sans-serif;
+          text-decoration: none; font-family: var(--font-body);
           transition: all 0.3s ease;
         }
         .hero-btn-secondary:hover {

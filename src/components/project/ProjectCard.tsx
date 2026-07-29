@@ -14,7 +14,7 @@ export default function ProjectCard({ project, onClick }: Props) {
           background: rgba(255,255,255,0.03);
           transition: transform 0.4s cubic-bezier(0.22,1,0.36,1),
                       box-shadow 0.4s ease, border-color 0.4s ease;
-          font-family: 'Outfit', sans-serif;
+          font-family: var(--font-body);
         }
         .proj-card:hover {
           transform: translateY(-8px);

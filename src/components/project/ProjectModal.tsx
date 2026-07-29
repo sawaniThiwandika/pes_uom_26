@@ -36,7 +36,7 @@ export default function ProjectModal({ project, onClose }: Props) {
     <>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700&family=Outfit:wght@300;400;500;600&display=swap');
-        .modal-root { font-family: 'Outfit', sans-serif; }
+        .modal-root { font-family: var(--font-body); }
         .modal-serif { font-family: 'Cormorant Garamond', serif; }
 
         @keyframes modalIn {
@@ -205,7 +205,7 @@ export default function ProjectModal({ project, onClose }: Props) {
               <div style={{ marginBottom: "14px" }}>
                 <span style={{
                   display: "inline-flex", alignItems: "center", gap: "5px",
-                  fontFamily: "'Outfit', sans-serif", fontSize: "10px",
+                  fontFamily: "var(--font-body)", fontSize: "10px",
                   fontWeight: 600, letterSpacing: "0.12em", textTransform: "uppercase",
                   color: "#6ee7b7", background: "rgba(52,211,153,0.08)",
                   border: "1px solid rgba(52,211,153,0.22)", borderRadius: "999px",
@@ -230,7 +230,7 @@ export default function ProjectModal({ project, onClose }: Props) {
 
               {/* Description */}
               <p style={{
-                fontFamily: "'Outfit', sans-serif", fontSize: "13.5px",
+                fontFamily: "var(--font-body)", fontSize: "13.5px",
                 fontWeight: 300, lineHeight: "1.85",
                 color: "rgba(255,255,255,0.55)", whiteSpace: "pre-line",
               }}>

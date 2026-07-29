@@ -58,7 +58,7 @@ function FloatInput({
           pointerEvents: "none",
           transition: "all 0.22s cubic-bezier(0.22,1,0.36,1)",
           zIndex: 1,
-          fontFamily: "'Outfit', sans-serif",
+          fontFamily: "var(--font-body)",
         }}
       >
         {label}
@@ -86,7 +86,7 @@ function FloatInput({
           borderRadius: "14px",
           color: "#f3f4f6",
           fontSize: "14px",
-          fontFamily: "'Outfit', sans-serif",
+          fontFamily: "var(--font-body)",
           fontWeight: 400,
           outline: "none",
           resize: rows ? "none" : undefined,
@@ -108,7 +108,7 @@ function FloatInput({
             color: "#f87171",
             marginTop: "4px",
             paddingLeft: "4px",
-            fontFamily: "'Outfit', sans-serif",
+            fontFamily: "var(--font-body)",
           }}
         >
           {error}
@@ -238,7 +238,7 @@ export default function ContactForm() {
           style={{
             color: "rgba(255,255,255,0.45)",
             fontSize: "14px",
-            fontFamily: "'Outfit', sans-serif",
+            fontFamily: "var(--font-body)",
           }}
         >
           We'll get back to you as soon as possible.
@@ -258,7 +258,7 @@ export default function ContactForm() {
             border: "1px solid rgba(52,211,153,0.3)",
             color: "#34d399",
             cursor: "pointer",
-            fontFamily: "'Outfit', sans-serif",
+            fontFamily: "var(--font-body)",
             fontSize: "13px",
           }}
         >
@@ -276,7 +276,7 @@ export default function ContactForm() {
         padding: "clamp(24px,4vw,48px)",
         backdropFilter: "blur(20px)",
         boxShadow: "0 32px 80px rgba(0,0,0,0.35)",
-        fontFamily: "'Outfit', sans-serif",
+        fontFamily: "var(--font-body)",
       }}
     >
       {/* Row 1 — name + email */}
@@ -355,7 +355,7 @@ export default function ContactForm() {
           cursor: status === "sending" ? "not-allowed" : "pointer",
           fontSize: "14px",
           fontWeight: 600,
-          fontFamily: "'Outfit', sans-serif",
+          fontFamily: "var(--font-body)",
           letterSpacing: "0.04em",
           transition: "background 0.25s ease, box-shadow 0.25s ease",
           boxShadow: "0 0 24px rgba(52,211,153,0.1)",

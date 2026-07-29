@@ -110,7 +110,7 @@ export default function MemberCard({
       <div className="absolute bottom-0 left-0 right-0 p-2.5 sm:p-3.5 z-20">
         <h3
           className="text-[11px] sm:text-[13px] font-semibold text-white leading-snug mb-2"
-          style={{ fontFamily: "'Outfit', sans-serif" }}
+          style={{ fontFamily: "var(--font-body)" }}
         >
           {name}
         </h3>

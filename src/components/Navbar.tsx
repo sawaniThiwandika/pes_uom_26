@@ -73,7 +73,7 @@ export default function Navbar() {
           display: flex; align-items: center; justify-content: center;
           padding: 12px 24px;
           transition: transform 0.4s cubic-bezier(0.22,1,0.36,1), padding 0.4s ease;
-          font-family: 'Outfit', sans-serif;
+          font-family: var(--font-body);
         }
         .nav-root.nav-hidden { transform: translateY(-110%); }
 
@@ -107,7 +107,7 @@ export default function Navbar() {
         }
         .nav-logo:hover .nav-logo-icon { background: rgba(52,211,153,0.24); box-shadow: 0 0 18px rgba(52,211,153,0.3); }
         .nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 700; color: #fff; }
-        .nav-logo-sub { font-family: 'Outfit', sans-serif; font-size: 8.5px; font-weight: 500; color: rgba(52,211,153,0.7); letter-spacing: 0.18em; text-transform: uppercase; display: block; margin-top: 1px; }
+        .nav-logo-sub { font-family: var(--font-body); font-size: 8.5px; font-weight: 500; color: rgba(52,211,153,0.7); letter-spacing: 0.18em; text-transform: uppercase; display: block; margin-top: 1px; }
 
         /* Desktop links */
         .nav-links { display: flex; align-items: center; gap: 2px; }
@@ -183,7 +183,7 @@ export default function Navbar() {
           display: flex; align-items: center; gap: 12px;
           padding: 12px 14px; border-radius: 14px; margin-bottom: 4px;
           color: rgba(255,255,255,0.60); text-decoration: none;
-          font-size: 15px; font-weight: 500; font-family: 'Outfit', sans-serif;
+          font-size: 15px; font-weight: 500; font-family: var(--font-body);
           transition: background 0.22s ease, color 0.22s ease, transform 0.22s ease;
           /* Links animate in via stagger when panel opens */
           opacity: 0; transform: translateX(16px);
