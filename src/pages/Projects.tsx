@@ -1,14 +1,114 @@
 import { useState } from "react";
-import { projects, type Project } from "../data/projectsData";
 import HeroSlider from "../components/project/HeroSlider.tsx";
 import ProjectCard from "../components/project/ProjectCard.tsx";
 import ProjectModal from "../components/project/ProjectModal.tsx";
+import useCSVDataLoader from "../hooks/useCSVDataLoader.ts";
+import type { Project } from "../data/projectsData.ts";
+import { useMemo } from "react";
+
+
 
 const PAGE_SIZE = 3;
 
 export default function ProjectsPage() {
   const [page, setPage] = useState(0);
+  const csvURL =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vQJc6eWMxIUG2kFqHig6dPE4ikhxDyQLaeE_ho-hIzWOpaPXwFontlzv0R6QAkWY8tylpO61nf_XMkG/pub?gid=0&single=true&output=csv";
+  const { csvData: projects, loading } = useCSVDataLoader(csvURL);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const heroImages = useMemo(() => {
+  return projects
+    .map(p => {
+      const imgs = p.images || [];
+      if (imgs.length === 0) return [];
+
+      const shuffled = [...imgs].sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, 2);
+    })
+    .flat()
+    .filter(Boolean);
+}, [projects]);
+
+  if (loading) {
+    return (
+      <div
+        className="proj-root"
+        style={{
+          background: "#060d07",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <div className="loading-grid">
+            {Array.from({ length: 6 }).map((_, i) => (
+              <div key={i} className="loading-card" />
+            ))}
+          </div>
+
+          <div
+            style={{
+              marginTop: "18px",
+              fontSize: "11px",
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              color: "#6ee7b7",
+              opacity: 0.7,
+            }}
+          >
+            Loading Projects
+          </div>
+        </div>
+
+        <style>{`
+        .loading-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 64px);
+          gap: 10px;
+          justify-content: center;
+        }
+
+        .loading-card {
+          width: 64px;
+          height: 64px;
+          border-radius: 10px;
+          background: rgba(255, 255, 255, 0.04);
+          border: 1px solid rgba(52, 211, 153, 0.10);
+          position: relative;
+          overflow: hidden;
+        }
+
+        .loading-card::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: -60%;
+          width: 60%;
+          height: 100%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(52, 211, 153, 0.12),
+            transparent
+          );
+          animation: shimmer 1.2s infinite;
+        }
+
+        @keyframes shimmer {
+          0% {
+            left: -60%;
+          }
+          100% {
+            left: 120%;
+          }
+        }
+      `}</style>
+      </div>
+    );
+  }
 
   const totalPages = Math.ceil(projects.length / PAGE_SIZE);
   const pageProjects = projects.slice(
@@ -49,7 +149,7 @@ export default function ProjectsPage() {
       >
         {/* Hero Slider */}
         <div className="pt-12 lg:pt-0">
-          <HeroSlider />
+          <HeroSlider images={heroImages} />
         </div>
 
         {/* ── Section header ── */}
