@@ -8,18 +8,22 @@ import chairman2425 from "/formercommittees/chairman2425.webp"
 import secretary2122 from "/formercommittees/secretary2122.webp"
 import secretary2223 from "/formercommittees/secretary2223.webp"
 import secretary2324 from "/formercommittees/secretary2324.webp"
+import secretary2425 from "/formercommittees/secretary2425.webp"
 
 import treasurer2122 from "/formercommittees/treasurer2122.webp"
 import treasurer2223 from "/formercommittees/treasurer2223.webp"
 import treasurer2324 from "/formercommittees/treasurer2324.webp"
+import treasurer2425 from "/formercommittees/treasurer2425.webp"
 
 import v_chairman2122 from "/formercommittees/v_chairman2122.webp"
 import v_chairman2223 from "/formercommittees/v_chairman2223.webp"
 import v_chairman2324 from "/formercommittees/v_chairman2324.webp"
+import v_chairman2425 from "/formercommittees/v_chairman2425.webp"
 
 import webmaster2122 from "/formercommittees/webmaster2122.webp"
 import webmaster2223 from "/formercommittees/webmaster2223.webp"
 import webmaster2324 from "/formercommittees/webmaster2324.webp"
+import webmaster2425 from "/formercommittees/webmaster2425.webp"
 
 export interface FormerYear {
   year: string;
@@ -34,36 +38,36 @@ export const formerCommittees: FormerYear[] = [
         name: "Ushan Muditha",
         role: "Chairman",
         image: chairman2425,
-        email: "",
-        linkedin: "",
+        email: "ushanmuditha2001@gmail.com",
+        linkedin: "https://www.linkedin.com/in/ushan-muditha",
       },
       {
         name: "Avishka Rajapaksha",
         role: "Vice Chairman",
-        image: "",
-        email: "",
-        linkedin: "",
+        image: v_chairman2425,
+        email: "avishkarajapaksha763@gmail.com",
+        linkedin: "https://www.linkedin.com/in/avishka-rajapaksha/",
       },
       {
         name: "Sandaru Dias",
         role: "Secretary",
-        image: "",
-        email: "",
-        linkedin: "",
+        image: secretary2425,
+        email: "sandaruvihangadias@gmail.lk",
+        linkedin: "https://www.linkedin.com/in/sandaru-dias/",
       },
       {
         name: "Nimesh Dilhara",
         role: "Treasurer",
-        image: "",
-        email: "",
-        linkedin: "",
+        image: treasurer2425,
+        email: "rhmndilhara123@gmail.com",
+        linkedin: "https://www.linkedin.com/in/nimeshrajakaruna",
       },
       {
         name: "Lahiruni Malshika",
         role: "Webmaster",
-        image: "",
-        email: "",
-        linkedin: "",
+        image: webmaster2425,
+        email: "lahimalshi@gmail.com",
+        linkedin: "https://www.linkedin.com/in/lahiruni-malshika-234242222/",
       },
     ],
   },
@@ -75,7 +79,7 @@ export const formerCommittees: FormerYear[] = [
         role: "Chairman",
         image: chairman2324,
         email: "upekshae46@gmail.com",
-        linkedin: "https://www.linkedin.com/in/upeksha-erandi-953374235?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
+        linkedin: "https://www.linkedin.com/in/upeksha-erandi-953374235",
       },
       {
         name: "Tharanga Mawan",
@@ -89,7 +93,7 @@ export const formerCommittees: FormerYear[] = [
         role: "Secretary",
         image: secretary2324,
         email: "Lahirumadhu501@gmail.com",
-        linkedin: "https://www.linkedin.com/in/lahirumadhushan?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        linkedin: "https://www.linkedin.com/in/lahirumadhushan",
       },
       {
         name: "Vicknarajah Nilesh",
@@ -103,7 +107,7 @@ export const formerCommittees: FormerYear[] = [
         role: "Webmaster",
         image: webmaster2324,
         email: "anujawij@gmail.com",
-        linkedin: "https://www.linkedin.com/in/anuja-wijewardana?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
+        linkedin: "https://www.linkedin.com/in/anuja-wijewardana",
       },
     ],
   },
@@ -115,7 +119,7 @@ export const formerCommittees: FormerYear[] = [
         role: "Chairman",
         image: chairman2223,
         email: "divakaranv.18@ieee.org",
-        linkedin: "www.linkedin.com/in/divakaran18",
+        linkedin: "https://www.linkedin.com/in/divakaran18",
       },
       {
         name: "Pavara Abeykoon",
@@ -183,7 +187,7 @@ export const formerCommittees: FormerYear[] = [
         role: "Webmaster",
         image: webmaster2122,
         email: "geshansudasinghe@gmail.com",
-        linkedin: "https://www.linkedin.com/in/geshan-sudasinghe-54bb0619b?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        linkedin: "https://www.linkedin.com/in/geshan-sudasinghe-54bb0619b",
       },
     ],
   },
