@@ -1,12 +1,15 @@
-import { type Project } from "../../data/projectsData";
-import { FaArrowRight, FaCalendarAlt } from "react-icons/fa";
+import {type Project} from "../../data/projectsData";
+import {FaArrowRight, FaCalendarAlt, FaFacebookF} from "react-icons/fa";
 
-interface Props { project: Project; onClick: () => void; }
+interface Props {
+    project: Project;
+    onClick: () => void;
+}
 
-export default function ProjectCard({ project, onClick }: Props) {
-  return (
-    <>
-      <style>{`
+export default function ProjectCard({project, onClick}: Props) {
+    return (
+        <>
+            <style>{`
         .proj-card {
           position: relative; border-radius: 20px; overflow: hidden;
           cursor: pointer; display: flex; flex-direction: column;
@@ -100,35 +103,68 @@ export default function ProjectCard({ project, onClick }: Props) {
           background: rgba(52,211,153,0.2);
           transform: rotate(-45deg);
         }
+
+       /* Facebook button */
+.proj-card-fb {
+  width: 26px; height: 26px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(52,211,153,0.1);
+  border: 1px solid rgba(52,211,153,0.25);
+  color: #34d399; font-size: 11px;
+  text-decoration: none; flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+.proj-card-fb:hover {
+  background: rgba(52,211,153,0.2);
+  border-color: rgba(52,211,153,0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(52,211,153,0.25);
+}
       `}</style>
 
-      <div className="proj-card" onClick={onClick} data-cursor-hover>
-        <div className="proj-card-shimmer" />
+            <div className="proj-card" onClick={onClick} data-cursor-hover>
+                <div className="proj-card-shimmer"/>
 
-        {/* Image */}
-        <div className="proj-card-img">
-          <img src={project.images[0]} alt={project.title} />
-          <div className="proj-card-img-overlay" />
-          <div className="proj-card-img-badge">
-            <FaCalendarAlt size={8} /> {project.date}
-          </div>
-        </div>
+                {/* Image */}
+                <div className="proj-card-img">
+                    <img src={project.images[0]} alt={project.title}/>
+                    <div className="proj-card-img-overlay"/>
+                    <div className="proj-card-img-badge">
+                        <FaCalendarAlt size={8}/> {project.date}
+                    </div>
+                </div>
 
-        {/* Body */}
-        <div className="proj-card-body">
-          <h3 className="proj-card-title">{project.title}</h3>
-          <p className="proj-card-preview">{project.preview}</p>
+                {/* Body */}
+                <div className="proj-card-body">
+                    <h3 className="proj-card-title">{project.title}</h3>
+                    <p className="proj-card-preview">{project.preview}</p>
 
-          <div className="proj-card-cta">
-            <div className="proj-card-cta-btn">
-              Read More
-              <div className="proj-card-cta-arrow">
-                <FaArrowRight />
-              </div>
+                    <div className="proj-card-cta">
+                        <div className="proj-card-cta-btn">
+                            Read More
+                            <div className="proj-card-cta-arrow">
+                                <FaArrowRight/>
+                            </div>
+                        </div>
+
+                        {/* Facebook link */}
+                        {project.album_link && (
+                            <a
+                                className="proj-card-fb"
+                                href={project.album_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="View on Facebook"
+                                title="View on Facebook"
+                                onClick={(e) => e.stopPropagation()}
+                                data-cursor-hover
+                            >
+                                <FaFacebookF/>
+                            </a>
+                        )}
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 }
