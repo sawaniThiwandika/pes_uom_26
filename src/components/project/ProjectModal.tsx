@@ -245,6 +245,7 @@ export default function ProjectModal({ project, onClose }: Props) {
   );
 }*/
 
+
 import { useState, useEffect, useRef } from "react";
 import type { Project } from "../../data/projectsData";
 import {
@@ -344,15 +345,13 @@ export default function ProjectModal({ project, onClose }: Props) {
         }
         .pm-stage {
           position: relative; flex: 1; min-height: 0; overflow: hidden;
-        }
-        .pm-stage-bg {
-          position: absolute; inset: -30px;
-          width: calc(100% + 60px); height: calc(100% + 60px);
-          object-fit: cover; filter: blur(28px) brightness(0.45) saturate(1.2);
+          background: #060d07;
         }
         .pm-stage-img {
-          position: relative; z-index: 1;
-          width: 100%; height: 100%; object-fit: contain;
+          position: absolute; inset: 0;
+          display: block;
+          width: 100%; height: 100%;
+          object-fit: cover; object-position: center;
           animation: pmImg 0.3s ease both;
         }
         .pm-nav {
@@ -480,10 +479,11 @@ export default function ProjectModal({ project, onClose }: Props) {
         @media (max-width: 820px) {
           .pm-backdrop { padding: 12px; }
           .pm-shell {
-            grid-template-columns: 1fr; grid-template-rows: auto 1fr;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto minmax(0, 1fr);
             height: min(92vh, 780px);
           }
-          .pm-gallery { height: 300px; }
+          .pm-gallery { height: clamp(220px, 38vh, 320px); }
           .pm-content { border-left: none; border-top: 1px solid rgba(255,255,255,0.06); }
           .pm-content-head { padding: 22px 22px 0; }
           .pm-desc { padding: 16px 22px 20px; }
@@ -491,7 +491,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           .pm-thumb { width: 54px; height: 40px; }
         }
         @media (max-width: 480px) {
-          .pm-gallery { height: 240px; }
+          .pm-gallery { height: clamp(200px, 34vh, 260px); }
           .pm-foot-note { display: none; }
           .pm-foot { justify-content: flex-end; }
         }
@@ -516,7 +516,6 @@ export default function ProjectModal({ project, onClose }: Props) {
             {/* ── Gallery ── */}
             <div className="pm-gallery">
               <div className="pm-stage">
-                <img className="pm-stage-bg" src={project.images[imgIndex]} alt="" aria-hidden="true" />
                 <img
                     key={imgIndex}
                     className="pm-stage-img"
