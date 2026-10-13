@@ -289,9 +289,25 @@ export default function ProjectModal({ project, onClose }: Props) {
 
   // Body scroll lock
   useEffect(() => {
-    document.body.style.overflow = project ? "hidden" : "";
+    if (!project) return;
+    const html = document.documentElement;
+    const body = document.body;
+    const prev = {
+      htmlOverflow: html.style.overflow,
+      bodyOverflow: body.style.overflow,
+      bodyPaddingRight: body.style.paddingRight,
+    };
+    // Width of the page scrollbar, so the page doesn't jump when it disappears
+    const scrollbarWidth = window.innerWidth - html.clientWidth;
+
+    html.style.overflow = "hidden";
+    body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) body.style.paddingRight = `${scrollbarWidth}px`;
+
     return () => {
-      document.body.style.overflow = "";
+      html.style.overflow = prev.htmlOverflow;
+      body.style.overflow = prev.bodyOverflow;
+      body.style.paddingRight = prev.bodyPaddingRight;
     };
   }, [project]);
 
@@ -320,6 +336,7 @@ export default function ProjectModal({ project, onClose }: Props) {
           backdrop-filter: blur(14px);
           font-family: var(--font-body);
           animation: pmFade 0.25s ease both;
+          overscroll-behavior: contain;
         }
         .pm-shell {
           position: relative; width: 100%; max-width: 1040px;
@@ -382,6 +399,7 @@ export default function ProjectModal({ project, onClose }: Props) {
         .pm-thumbs {
           display: flex; gap: 8px; padding: 12px 14px;
           overflow-x: auto; flex-shrink: 0;
+          overscroll-behavior: contain;
           background: #08100a;
           border-top: 1px solid rgba(255,255,255,0.06);
           scrollbar-width: thin; scrollbar-color: rgba(52,211,153,0.3) transparent;
@@ -422,6 +440,7 @@ export default function ProjectModal({ project, onClose }: Props) {
         }
         .pm-desc {
           flex: 1; min-height: 0; overflow-y: auto;
+          overscroll-behavior: contain;
           padding: 20px 32px 24px;
           font-size: 14px; font-weight: 300; line-height: 1.85;
           color: rgba(255,255,255,0.62); white-space: pre-line;
