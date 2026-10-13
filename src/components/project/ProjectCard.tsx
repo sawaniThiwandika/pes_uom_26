@@ -91,7 +91,8 @@ export default function ProjectCard({project, onClick}: Props) {
           letter-spacing: 0.05em;
           transition: gap 0.22s ease;
         }
-        .proj-card:hover .proj-card-cta-btn { gap: 10px; }
+        .proj-card-cta-btn { cursor: pointer; }
+        .proj-card-cta-btn:hover { gap: 10px; }
         .proj-card-cta-arrow {
           width: 26px; height: 26px; border-radius: 8px;
           display: flex; align-items: center; justify-content: center;
@@ -99,27 +100,14 @@ export default function ProjectCard({project, onClick}: Props) {
           color: #34d399; font-size: 10px;
           transition: all 0.25s ease;
         }
-        .proj-card:hover .proj-card-cta-arrow {
+        .proj-card-cta-btn:hover .proj-card-cta-arrow {
           background: rgba(52,211,153,0.2);
+          border-color: rgba(52,211,153,0.45);
           transform: rotate(-45deg);
         }
 
-       /* Facebook button */
-.proj-card-fb {
-  width: 26px; height: 26px; border-radius: 8px;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(52,211,153,0.1);
-  border: 1px solid rgba(52,211,153,0.25);
-  color: #34d399; font-size: 11px;
-  text-decoration: none; flex-shrink: 0;
-  transition: all 0.25s ease;
-}
-.proj-card-fb:hover {
-  background: rgba(52,211,153,0.2);
-  border-color: rgba(52,211,153,0.45);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(52,211,153,0.25);
-}
+        /* Album link: reuses the Read More styles */
+        .proj-card-album { text-decoration: none; }
       `}</style>
 
             <div className="proj-card" onClick={onClick} data-cursor-hover>
@@ -147,19 +135,22 @@ export default function ProjectCard({project, onClick}: Props) {
                             </div>
                         </div>
 
-                        {/* Facebook link */}
+                        {/* Album link */}
                         {project.album_link && (
                             <a
-                                className="proj-card-fb"
+                                className="proj-card-cta-btn proj-card-album"
                                 href={project.album_link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                aria-label="View on Facebook"
-                                title="View on Facebook"
+                                aria-label="View album on Facebook"
+                                title="View album on Facebook"
                                 onClick={(e) => e.stopPropagation()}
                                 data-cursor-hover
                             >
-                                <FaFacebookF/>
+                                View Album
+                                <div className="proj-card-cta-arrow">
+                                    <FaFacebookF/>
+                                </div>
                             </a>
                         )}
                     </div>
