@@ -1,12 +1,15 @@
-import { type Project } from "../../data/projectsData";
-import { FaArrowRight, FaCalendarAlt } from "react-icons/fa";
+import {type Project} from "../../data/projectsData";
+import {FaArrowRight, FaCalendarAlt, FaFacebookF} from "react-icons/fa";
 
-interface Props { project: Project; onClick: () => void; }
+interface Props {
+    project: Project;
+    onClick: () => void;
+}
 
-export default function ProjectCard({ project, onClick }: Props) {
-  return (
-    <>
-      <style>{`
+export default function ProjectCard({project, onClick}: Props) {
+    return (
+        <>
+            <style>{`
         .proj-card {
           position: relative; border-radius: 20px; overflow: hidden;
           cursor: pointer; display: flex; flex-direction: column;
@@ -88,7 +91,8 @@ export default function ProjectCard({ project, onClick }: Props) {
           letter-spacing: 0.05em;
           transition: gap 0.22s ease;
         }
-        .proj-card:hover .proj-card-cta-btn { gap: 10px; }
+        .proj-card-cta-btn { cursor: pointer; }
+        .proj-card-cta-btn:hover { gap: 10px; }
         .proj-card-cta-arrow {
           width: 26px; height: 26px; border-radius: 8px;
           display: flex; align-items: center; justify-content: center;
@@ -96,39 +100,62 @@ export default function ProjectCard({ project, onClick }: Props) {
           color: #34d399; font-size: 10px;
           transition: all 0.25s ease;
         }
-        .proj-card:hover .proj-card-cta-arrow {
+        .proj-card-cta-btn:hover .proj-card-cta-arrow {
           background: rgba(52,211,153,0.2);
+          border-color: rgba(52,211,153,0.45);
           transform: rotate(-45deg);
         }
+
+        /* Album link: reuses the Read More styles */
+        .proj-card-album { text-decoration: none; }
       `}</style>
 
-      <div className="proj-card" onClick={onClick} data-cursor-hover>
-        <div className="proj-card-shimmer" />
+            <div className="proj-card" onClick={onClick} data-cursor-hover>
+                <div className="proj-card-shimmer"/>
 
-        {/* Image */}
-        <div className="proj-card-img">
-          <img src={project.images[0]} alt={project.title} />
-          <div className="proj-card-img-overlay" />
-          <div className="proj-card-img-badge">
-            <FaCalendarAlt size={8} /> {project.date}
-          </div>
-        </div>
+                {/* Image */}
+                <div className="proj-card-img">
+                    <img src={project.images[0]} alt={project.title}/>
+                    <div className="proj-card-img-overlay"/>
+                    <div className="proj-card-img-badge">
+                        <FaCalendarAlt size={8}/> {project.date}
+                    </div>
+                </div>
 
-        {/* Body */}
-        <div className="proj-card-body">
-          <h3 className="proj-card-title">{project.title}</h3>
-          <p className="proj-card-preview">{project.preview}</p>
+                {/* Body */}
+                <div className="proj-card-body">
+                    <h3 className="proj-card-title">{project.title}</h3>
+                    <p className="proj-card-preview">{project.preview}</p>
 
-          <div className="proj-card-cta">
-            <div className="proj-card-cta-btn">
-              Read More
-              <div className="proj-card-cta-arrow">
-                <FaArrowRight />
-              </div>
+                    <div className="proj-card-cta">
+                        <div className="proj-card-cta-btn">
+                            Read More
+                            <div className="proj-card-cta-arrow">
+                                <FaArrowRight/>
+                            </div>
+                        </div>
+
+                        {/* Album link */}
+                        {project.album_link && (
+                            <a
+                                className="proj-card-cta-btn proj-card-album"
+                                href={project.album_link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="View album on Facebook"
+                                title="View album on Facebook"
+                                onClick={(e) => e.stopPropagation()}
+                                data-cursor-hover
+                            >
+                                View Album
+                                <div className="proj-card-cta-arrow">
+                                    <FaFacebookF/>
+                                </div>
+                            </a>
+                        )}
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
+        </>
+    );
 }

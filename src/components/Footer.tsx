@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { FaBolt, FaFacebookF, FaLinkedinIn, FaEnvelope, FaMapMarkerAlt, FaArrowUp } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaEnvelope, FaMapMarkerAlt, FaArrowUp } from "react-icons/fa";
 import logo from "../assets/logo.png";
 
 const LINKS = [
@@ -213,9 +213,9 @@ export default function Footer() {
               IEEE Power &amp; Energy Society Student Branch Chapter of the
               University of Moratuwa — advancing power engineering for humanity.
             </p>
-            <div className="footer-badge">
+            {/*<div className="footer-badge">
               <FaBolt size={8} /> Est. · University of Moratuwa
-            </div>
+            </div>*/}
             <div className="footer-social">
               {SOCIALS.map(({ href, label, Icon }) => (
                 <a key={label} href={href} target="_blank" rel="noopener noreferrer"

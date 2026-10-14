@@ -7,6 +7,7 @@ export interface Project {
   preview: string;
   description: string;
   date: string;
+  album_link: string;
   images: string[];
 }
 
@@ -64,6 +65,7 @@ const useCSVDataLoader = (
             preview: rowData["preview"] || "",
             description: rowData["description"] || "",
             date: rowData["date"] || "",
+            album_link:rowData.album_link,
             images,
           };
         });

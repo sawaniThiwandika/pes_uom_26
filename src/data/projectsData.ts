@@ -4,5 +4,6 @@ export interface Project {
     preview: string;
     description: string;
     date: string;
+    album_link: string;
     images: string[];
 }
